@@ -132,7 +132,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/btnSelectProduct"
+                android:id="@+id/btnValid1"
                 android:layout_width="171dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="195dp"
@@ -323,25 +323,29 @@
         android:id="@+id/searchView2"
         android:layout_width="217dp"
         android:layout_height="40dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="13dp"
         android:backgroundTint="#ACACAC"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/cv1"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="75dp"
         android:layout_height="29dp"
         android:layout_marginStart="65dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="13dp"
         android:text="@string/orders_title"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cv1"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView17"
