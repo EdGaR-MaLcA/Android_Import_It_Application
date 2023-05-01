@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Android_Import_It_Application</string>
+    <string name="domestic_shipments">Domestic Shipments</string>
+    <string name="directions">Directions</string>
+    <string name="chats">Chats</string>
+    <string name="orders">Orders</string>
+    <string name="order">order</string>
+    <string name="dashboard">dashboard</string>
+    <string name="coupons">Coupons</string>
+    <string name="calculator">Calculator</string>
+    <string name="configuration">configuration</string>
+    <string name="perfil">perfil</string>
+    <string name="costumer_service">costumer_service</string>
+    <string name="filter">Filter</string>
+    <string name="arrow">arrow</string>
 </resources>
