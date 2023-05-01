@@ -13,4 +13,27 @@
     <string name="costumer_service">costumer_service</string>
     <string name="filter">Filter</string>
     <string name="arrow">arrow</string>
+    <string name="type">Traveler</string>
+    <string name="total_size">56 X 96 cm</string>
+    <string name="weight">5.245 grames</string>
+    <string name="total_price">Total price</string>
+    <string name="result">$600.00</string>
+    <string name="proceed_to_pay">proceed to pay</string>
+    <string name="tvweight">Weight:</string>
+    <string name="tvtotal_size">Total size:</string>
+    <string name="type_o_importation">Type o importation:</string>
+    <string name="line">line</string>
+    <string name="description">Iphone 13 pro max</string>
+    <string name="cellphone">cellphone</string>
+    <string name="add_new_target">Add new target</string>
+    <string name="card_number">Card Number</string>
+    <string name="hCard_number">xxxx-xxxx</string>
+    <string name="card_information">Card Information</string>
+    <string name="expire_date">Expire Date</string>
+    <string name="ccv">CCV</string>
+    <string name="h_ccv">xxx</string>
+    <string name="h_expire_date">xx/xx</string>
+    <string name="target_cards">target cards</string>
+    <string name="correct_payment">correct payment</string>
+    <string name="back">Back</string>
 </resources>
