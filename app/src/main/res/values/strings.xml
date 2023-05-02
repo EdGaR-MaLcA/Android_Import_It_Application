@@ -36,4 +36,5 @@
     <string name="target_cards">target cards</string>
     <string name="correct_payment">correct payment</string>
     <string name="back">Back</string>
+    <string name="importit">ImportIt</string>
 </resources>
