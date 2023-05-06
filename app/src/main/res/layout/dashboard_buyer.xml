@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/dashboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dashboard" />
+
+    <SearchView
+        android:id="@+id/searchView2"
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDashboard" />
+
+    <TextView
+        android:id="@+id/tvOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/orders"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibOrders" />
+
+    <TextView
+        android:id="@+id/tvChats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="69dp"
+        android:text="@string/chats"
+        app:layout_constraintEnd_toStartOf="@+id/tvDirections"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvOrder"
+        app:layout_constraintTop_toBottomOf="@+id/ibChats" />
+
+    <TextView
+        android:id="@+id/tvDirections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="56dp"
+        android:text="@string/directions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibDirections" />
+
+    <TextView
+        android:id="@+id/tvCoupons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="59dp"
+        android:text="@string/coupons"
+        app:layout_constraintEnd_toStartOf="@+id/tvCalculator"
+        app:layout_constraintStart_toEndOf="@+id/tvDomestic"
+        app:layout_constraintTop_toBottomOf="@+id/ibCoupons" />
+
+    <TextView
+        android:id="@+id/tvCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="53dp"
+        android:text="@string/calculator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibCalculator" />
+
+    <TextView
+        android:id="@+id/tvDomestic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/domestic_shipments"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibDomestic" />
+
+    <ImageButton
+        android:id="@+id/ibOrders"
+        android:layout_width="73.96dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="23dp"
+        android:background="@color/white"
+        android:contentDescription="@string/orders"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView2"
+        app:srcCompat="@drawable/orders" />
+
+    <ImageButton
+        android:id="@+id/ibChats"
+        android:layout_width="68dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="53dp"
+        android:background="@color/white"
+        android:contentDescription="@string/chats"
+        app:layout_constraintEnd_toStartOf="@+id/ibDirections"
+        app:layout_constraintStart_toEndOf="@+id/ibOrders"
+        app:layout_constraintTop_toBottomOf="@+id/searchView2"
+        app:srcCompat="@drawable/chats" />
+
+    <ImageButton
+        android:id="@+id/ibDirections"
+        android:layout_width="68dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="51dp"
+        android:background="@color/white"
+        android:contentDescription="@string/directions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView2"
+        app:srcCompat="@drawable/directions" />
+
+    <ImageButton
+        android:id="@+id/ibDomestic"
+        android:layout_width="68dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        android:contentDescription="@string/domestic_shipments"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrder"
+        app:srcCompat="@drawable/domestic" />
+
+    <ImageButton
+        android:id="@+id/ibCoupons"
+        android:layout_width="68dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="52dp"
+        android:background="@color/white"
+        android:contentDescription="@string/coupons"
+        app:layout_constraintEnd_toStartOf="@+id/ibCalculator"
+        app:layout_constraintStart_toEndOf="@+id/ibDomestic"
+        app:layout_constraintTop_toBottomOf="@+id/tvChats"
+        app:srcCompat="@drawable/coupons" />
+
+    <ImageButton
+        android:id="@+id/ibCalculator"
+        android:layout_width="68dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="51dp"
+        android:background="@color/white"
+        android:contentDescription="@string/calculator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDirections"
+        app:srcCompat="@drawable/calculator" />
+
+    <ImageButton
+        android:id="@+id/ibConfiguration"
+        android:layout_width="78dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:contentDescription="@string/configuration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/configuration" />
+
+    <ImageButton
+        android:id="@+id/ibPerfil"
+        android:layout_width="104dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:contentDescription="@string/perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibCostumer"
+        app:layout_constraintStart_toEndOf="@+id/ibConfiguration"
+        app:srcCompat="@drawable/selfie" />
+
+    <ImageButton
+        android:id="@+id/ibCostumer"
+        android:layout_width="50dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:contentDescription="@string/costumer_service"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/customer_service" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
