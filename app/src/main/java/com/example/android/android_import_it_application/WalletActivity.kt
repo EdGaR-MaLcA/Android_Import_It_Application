@@ -12,12 +12,11 @@ class WalletActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.wallet_traveler)
 
-        //val tvBackOrders = findViewById<TextView>(R.id.textView17)
+        val tvBackOrders = findViewById<TextView>(R.id.textView40)
 
-        //tvBackOrders.setOnClickListener {
-        //    val intent: Intent = Intent(this, MainActivity::class.java)
-        //    startActivity(intent)
-        //}
-
+        tvBackOrders.setOnClickListener {
+            val intent: Intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
