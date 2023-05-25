@@ -1,14 +1,45 @@
-package com.example.android.android_import_it_application
+package com.example.android.android_import_it_application.controllers.activities
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.example.android.android_import_it_application.R
+import com.example.android.android_import_it_application.controllers.fragments.CouponFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
+            item -> navigateTo(item)
+    }
+
+    private fun navigateTo(item: MenuItem) : Boolean{
+        item.isChecked = true
+        return supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.flFragment, getFragmentFor(item))
+            .commit() > 0
+    }
+
+    private fun getFragmentFor(item: MenuItem): Fragment {
+        return when (item.itemId){
+            R.id.menu_home -> CouponFragment()
+            else -> CouponFragment()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val navView: BottomNavigationView = findViewById(R.id.bnvMenu)
+        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        navigateTo(navView.menu.findItem(R.id.menu_home))
+    }
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_traveler)
 
@@ -44,6 +75,6 @@ class MainActivity : AppCompatActivity() {
             val intent: Intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }*/
-    }
+    }*/
 
 }
