@@ -30,8 +30,9 @@
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSeeProducts"
         android:layout_width="409dp"
-        android:layout_height="525dp"
+        android:layout_height="409dp"
         android:layout_marginTop="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

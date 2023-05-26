@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.fragments.CouponFragment
+import com.example.android.android_import_it_application.controllers.fragments.SeeProductsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getFragmentFor(item: MenuItem): Fragment {
         return when (item.itemId){
-            R.id.menu_home -> CouponFragment()
+            R.id.menu_home -> SeeProductsFragment()
             else -> CouponFragment()
         }
     }
