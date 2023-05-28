@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.adapter.CouponAdapter
+import com.example.android.android_import_it_application.adapter.SeeProductAdapter
 import com.example.android.android_import_it_application.models.Coupon
+import com.example.android.android_import_it_application.models.ProductList
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call
 import retrofit2.Callback
@@ -41,21 +43,21 @@ class SeeProductsFragment : Fragment() {
             .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val couponService: ImportItService = retrofit.create(ImportItService::class.java)
-        val request=couponService.getCoupons()
-        request.enqueue(object : Callback<List<Coupon>> {
-            override fun onFailure(call: Call<List<Coupon>>, t: Throwable) {
+        val seeProductService: ImportItService = retrofit.create(ImportItService::class.java)
+        val request=seeProductService.getProductLists()
+        request.enqueue(object : Callback<List<ProductList>> {
+            override fun onFailure(call: Call<List<ProductList>>, t: Throwable) {
                 Log.d("Activity Fail", "Error: $t")
             }
 
             override fun onResponse(
-                call: Call<List<Coupon>>,
-                response: Response<List<Coupon>>
+                call: Call<List<ProductList>>,
+                response: Response<List<ProductList>>
             ) {
                 if(response.isSuccessful){
-                    val coupons: List<Coupon> = response.body()!!
+                    val seeProducts: List<ProductList> = response.body()!!
                     recyclerView.layoutManager= LinearLayoutManager(context)
-                    recyclerView.adapter= CouponAdapter(coupons, context)
+                    recyclerView.adapter= SeeProductAdapter(seeProducts, context)
                 } else{
                     Log.d("Activity fail", "Error: "+response.code())
                 }
