@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/menu_home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="@string/home" />
-    <item
-        android:id="@+id/menu_coupons"
-        android:icon="@drawable/baseline_discount_24"
-        android:title="@string/coupon" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/menu_coupons"
+            android:icon="@drawable/baseline_discount_24"
+            android:title="@string/coupon" />
+        <item
+            android:id="@+id/menu_orders"
+            android:icon="@drawable/baseline_shopping_cart_24"
+            android:title="@string/orders" />
+        <item
+            android:id="@+id/menu_domestic_shipments"
+            android:icon="@drawable/baseline_local_shipping_24"
+            android:title="@string/domestic_shipments" />
+
+    </group>
+
 </menu>

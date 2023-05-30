@@ -101,4 +101,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">home</string>
     <string name="coupon">coupon</string>
+    <string name="logout_fragment">Logout Fragment</string>
+    <string name="custom_fragment">Custom Fragment</string>
 </resources>

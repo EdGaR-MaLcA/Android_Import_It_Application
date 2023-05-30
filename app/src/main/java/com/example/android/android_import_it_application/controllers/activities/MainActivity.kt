@@ -27,7 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun getFragmentFor(item: MenuItem): Fragment {
         return when (item.itemId){
-            R.id.menu_home -> SeeProductsFragment()
+            R.id.menu_coupons->CouponFragment()
+            R.id.menu_orders->CouponFragment()
+            R.id.menu_domestic_shipments->CouponFragment()
             else -> CouponFragment()
         }
     }
