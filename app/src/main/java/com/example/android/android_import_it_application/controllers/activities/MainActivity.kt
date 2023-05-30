@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity() {
         val btBuyer = findViewById<Button>(R.id.btBuyer)
 
         btBuyer.setOnClickListener{
-            val intent1: Intent = Intent(this, BuyerActivity::class.java)
-            startActivity(intent1)
+            val intent: Intent = Intent(this, BuyerActivity::class.java)
+            startActivity(intent)
         }
 
     }
