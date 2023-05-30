@@ -1,5 +1,6 @@
 package com.example.android.android_import_it_application.controllers.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,15 +33,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val navView: BottomNavigationView = findViewById(R.id.bnvMenu)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         navigateTo(navView.menu.findItem(R.id.menu_home))
-    }
-    /*override fun onCreate(savedInstanceState: Bundle?) {
+    }*/
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_traveler)
 
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         val tvCustomerOrder = findViewById<TextView>(R.id.tvCustomerOrder)
         val ivWallet = findViewById<ImageView>(R.id.ivWallet)
         val tvWallet = findViewById<TextView>(R.id.tvWallet)
-        //val tvBackWallet = findViewById<TextView>(R.id.textView40)
+        //val tvBackWallet = findViewById<TextView>(R.id.tvBackWallet)
 
         imgOrder.setOnClickListener {
             val intent: Intent = Intent(this, OrderActivity::class.java)
@@ -76,6 +78,6 @@ class MainActivity : AppCompatActivity() {
             val intent: Intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }*/
-    }*/
+    }
 
 }
