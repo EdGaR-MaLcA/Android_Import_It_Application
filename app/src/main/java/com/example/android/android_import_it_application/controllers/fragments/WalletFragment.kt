@@ -26,9 +26,14 @@ class WalletFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        savedOrders= OrderDatabase.getInstance(view.context).getOrderDAO().getAllOrders()
         recyclerView=view.findViewById(R.id.rvWalletOrders)
+        loadOrders()
+    }
+
+    private fun loadOrders() {
+        savedOrders= OrderDatabase.getInstance(requireContext()).getOrderDAO().getAllOrders()
+        println(savedOrders)
         recyclerView.layoutManager= LinearLayoutManager(context)
-        recyclerView.adapter= WalletAdapter(savedOrders, view.context)
+        recyclerView.adapter= WalletAdapter(savedOrders, requireContext())
     }
 }

@@ -8,6 +8,9 @@ interface OrderDao {
     @Query("SELECT * FROM orders")
     fun getAllOrders(): List<Order>
 
+    @Query("SELECT * FROM orders WHERE order_id = :order_id")
+    fun getById(order_id: Int): List<Order>
+
     @Insert
     fun insertOrder(vararg order: Order)
 

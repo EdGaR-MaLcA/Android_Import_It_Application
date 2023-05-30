@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
@@ -49,7 +50,12 @@ class CustomerOrderAdapter (private val customerOrders: List<Order>, private val
     }
 
     private fun saveAlbum(cusOrder: Order) {
-        OrderDatabase.getInstance(this.context).getOrderDAO().insertOrder(cusOrder)
+        val query = OrderDatabase.getInstance(context).getOrderDAO().getById(cusOrder.order_id)
+        if (query.isEmpty()) {
+            OrderDatabase.getInstance(context).getOrderDAO().insertOrder(cusOrder)
+            Toast.makeText(context, "Orden guardada.", Toast.LENGTH_SHORT).show()
+        }
+        else Toast.makeText(context, "Ya se ha guardado previamente esta orden.", Toast.LENGTH_SHORT).show()
     }
 
     override fun getItemCount(): Int {

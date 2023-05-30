@@ -7,8 +7,8 @@ import java.io.Serializable
 
 @Entity(tableName = "orders")
 class Order (
-    @PrimaryKey
-    @SerializedName("order_id")
+    @PrimaryKey(autoGenerate = false)
+    @SerializedName("id")
     var order_id: Int,
 
     @SerializedName("name")

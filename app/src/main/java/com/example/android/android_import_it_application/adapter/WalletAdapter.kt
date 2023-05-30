@@ -15,12 +15,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 
-class WalletAdapter (private val savedOrder: List<Order>, private val context: Context): RecyclerView.Adapter<WalletAdapter.ViewHolder>(){
+class WalletAdapter (private val savedOrders: List<Order>, private val context: Context): RecyclerView.Adapter<WalletAdapter.ViewHolder>(){
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         val tvDate=view.findViewById<TextView>(R.id.tvDate)
         val tvNumberOrder=view.findViewById<TextView>(R.id.tvNumberOrder)
         val tvNameW=view.findViewById<TextView>(R.id.tvNameW)
         val tvComisionW=view.findViewById<TextView>(R.id.tvComisionW)
+
+        fun bind(order: Order) {
+            tvNumberOrder.text = order.order_id.toString()
+            tvNameW.text=order.tittle
+            tvComisionW.text=order.comision
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,9 +36,8 @@ class WalletAdapter (private val savedOrder: List<Order>, private val context: C
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val order=savedOrder[position]
-        holder.tvNameW.text=order.tittle
-        holder.tvComisionW.text=order.comision
+        holder.bind(savedOrders[position])
+
         /*holder.fabDelete.setOnClickListener{
             deleteAlbum(album)
         }*/
@@ -45,6 +50,6 @@ class WalletAdapter (private val savedOrder: List<Order>, private val context: C
 
 
     override fun getItemCount(): Int {
-        return savedOrder.size
+        return savedOrders.size
     }
 }
