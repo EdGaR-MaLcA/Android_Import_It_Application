@@ -6,6 +6,7 @@ import com.example.android.android_import_it_application.models.Order
 import com.example.android.android_import_it_application.models.ProductList
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface ImportItService {
     @GET("coupon")
@@ -16,4 +17,10 @@ interface ImportItService {
 
     @GET("orders")
     fun getOrders(): Call<List<Order>>
+
+    /*@GET("travelerOrders")
+    fun getMyOrders(): Call<List<Order>>
+
+    @POST("")
+    fun postMyOrders()*/
 }

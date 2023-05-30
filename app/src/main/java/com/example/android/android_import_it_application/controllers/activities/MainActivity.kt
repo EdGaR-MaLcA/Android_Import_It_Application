@@ -12,6 +12,7 @@ import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.fragments.CouponFragment
 import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
 import com.example.android.android_import_it_application.controllers.fragments.SeeProductsFragment
+import com.example.android.android_import_it_application.controllers.fragments.WalletFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -27,25 +28,33 @@ class MainActivity : AppCompatActivity() {
             .commit() > 0
     }
 
+    /*private fun getFragmentFor(item: MenuItem): Fragment {
+        return when (item.itemId){
+            R.id.menu_home -> SeeProductsFragment()
+            else -> CouponFragment()
+        }
+    }*/
+
     private fun getFragmentFor(item: MenuItem): Fragment {
         return when (item.itemId){
             R.id.menu_home -> CustomerOrderFragment()
-            else -> CouponFragment()
+            else -> WalletFragment()
         }
     }
 
-   override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val navView: BottomNavigationView = findViewById(R.id.bnvMenu)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         navigateTo(navView.menu.findItem(R.id.menu_home))
-    } /*
-    @SuppressLint("MissingInflatedId")
+    }
+    /*@SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_traveler)
+
 
         val imgOrder = findViewById<ImageView>(R.id.ivCustomerOrder)
         val tvCustomerOrder = findViewById<TextView>(R.id.tvCustomerOrder)
@@ -79,6 +88,6 @@ class MainActivity : AppCompatActivity() {
             val intent: Intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }*/
-    }
-*/
+    }*/
+
 }

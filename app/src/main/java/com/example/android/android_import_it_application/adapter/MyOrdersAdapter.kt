@@ -4,18 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
-import com.example.android.android_import_it_application.database.OrderDatabase
 import com.example.android.android_import_it_application.models.Order
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class CustomerOrderAdapter (private val customerOrders: List<Order>, private val context: Context): RecyclerView.Adapter<CustomerOrderAdapter.ViewHolder>() {
-
+class MyOrdersAdapter{ /*(private val myOrders: List<Order>, private val context: Context): RecyclerView.Adapter<MyOrdersAdapter.ViewHolder>() {
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         //val ivCustOrders = view.findViewById<ImageView>(R.id.ivCustOrders)
         val tvTitleProduct = view.findViewById<TextView>(R.id.tvTitleProduct)
@@ -25,7 +19,6 @@ class CustomerOrderAdapter (private val customerOrders: List<Order>, private val
         val tvWeight1 = view.findViewById<TextView>(R.id.tvWeight1)
         val tvComision = view.findViewById<TextView>(R.id.tvComision)
         val tvCusName = view.findViewById<TextView>(R.id.tvCusName)
-        val btnSelect = view.findViewById<Button>(R.id.btnSelect)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
@@ -36,23 +29,16 @@ class CustomerOrderAdapter (private val customerOrders: List<Order>, private val
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cusOrder = customerOrders[position]
-        holder.tvTitleProduct.text = cusOrder.tittle
-        holder.tvUrl.text = cusOrder.url
-        holder.tvPrice.text = cusOrder.price
-        holder.tvWeight1.text = cusOrder.weight
-        holder.tvComision.text = cusOrder.comision
-        holder.tvCusName.text = cusOrder.name
-        holder.btnSelect.setOnClickListener{
-            saveAlbum(cusOrder)
-        }
-    }
-
-    private fun saveAlbum(cusOrder: Order) {
-        OrderDatabase.getInstance(this.context).getOrderDAO().insertOrder(cusOrder)
+        val myOrder = myOrders[position]
+        holder.tvTitleProduct.text = myOrder.tittle
+        holder.tvUrl.text = myOrder.url
+        holder.tvPrice.text = myOrder.price
+        holder.tvWeight1.text = myOrder.weight
+        holder.tvComision.text = myOrder.comision
+        holder.tvCusName.text = myOrder.name
     }
 
     override fun getItemCount(): Int {
-        return customerOrders.size
-    }
+        return myOrders.size
+    }*/
 }
