@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="361dp"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svSeeProduct"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="25dp"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search product"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +29,7 @@
         android:text="@string/filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/svSeeProduct" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSeeProducts"

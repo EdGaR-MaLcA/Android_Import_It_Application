@@ -20,6 +20,21 @@
             android:name=".controllers.activities.OrderActivity"
             android:exported="false" />
         <activity
+            android:name=".controllers.activities.BuyerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.activities.SeeProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.activities.DescriptionItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.activities.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.activities.Payment2Activity"
+            android:exported="false" />
+        <activity
             android:name=".controllers.activities.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -1,6 +1,7 @@
 package com.example.android.android_import_it_application.controllers.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,9 +11,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.adapter.CouponAdapter
 import com.example.android.android_import_it_application.adapter.SeeProductAdapter
-import com.example.android.android_import_it_application.models.Coupon
+import com.example.android.android_import_it_application.controllers.activities.DescriptionItemActivity
 import com.example.android.android_import_it_application.models.ProductList
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call
@@ -21,15 +21,16 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SeeProductsFragment : Fragment() {
+class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
     lateinit var recyclerView: RecyclerView
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.see_products, container, false)
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,12 +58,17 @@ class SeeProductsFragment : Fragment() {
                 if(response.isSuccessful){
                     val seeProducts: List<ProductList> = response.body()!!
                     recyclerView.layoutManager= LinearLayoutManager(context)
-                    recyclerView.adapter= SeeProductAdapter(seeProducts, context)
+                    recyclerView.adapter= SeeProductAdapter(seeProducts, context, this@SeeProductsFragment)
                 } else{
                     Log.d("Activity fail", "Error: "+response.code())
                 }
             }
         })
+    }
+
+    override fun onItemClicked(seeProduct: ProductList){
+        val intent = Intent(context, DescriptionItemActivity::class.java)
+        startActivity(intent)
     }
 
 
