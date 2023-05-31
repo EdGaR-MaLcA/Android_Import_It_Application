@@ -5,10 +5,10 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-@Entity(tableName = "coupon")
+@Entity(tableName = "coupons")
 class Coupon (
     @PrimaryKey
-    @SerializedName("id")
+    @SerializedName("idCoupon")
     var coupon_id: Int,
     @SerializedName("title")
     var title: String,
