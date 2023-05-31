@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun getFragmentFor(item: MenuItem): Fragment {
         return when (item.itemId){
-            R.id.menu_home -> MyOrdersFragment()
-            else -> WalletFragment()
+            R.id.menu_home -> CustomerOrderFragment()
+            else -> MyOrdersFragment()
         }
     }
 

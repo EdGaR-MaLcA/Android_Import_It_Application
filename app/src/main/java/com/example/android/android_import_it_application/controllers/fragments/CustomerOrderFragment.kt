@@ -21,7 +21,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CustomerOrderFragment : Fragment() {
+class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
     lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -63,5 +63,10 @@ class CustomerOrderFragment : Fragment() {
                 }
             }
         })
+    }
+
+    override fun onCreateOrderClicked(order: Order) {
+        val adapter = recyclerView.adapter as? CustomerOrderAdapter
+        adapter?.sendOrderToServer(order)
     }
 }
