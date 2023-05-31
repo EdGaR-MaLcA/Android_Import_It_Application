@@ -18,5 +18,11 @@ class BuyerActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val ibCoupon = findViewById<ImageButton>(R.id.ibCoupons)
+        ibCoupon.setOnClickListener{
+            val intent: Intent = Intent(this, CouponActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
