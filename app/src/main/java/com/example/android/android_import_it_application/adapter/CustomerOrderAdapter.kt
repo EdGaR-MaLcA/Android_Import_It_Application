@@ -5,15 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
 import com.example.android.android_import_it_application.database.OrderDatabase
 import com.example.android.android_import_it_application.models.Order
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CustomerOrderAdapter (private val customerOrders: List<Order>, private val context: Context): RecyclerView.Adapter<CustomerOrderAdapter.ViewHolder>() {
 
@@ -26,7 +23,7 @@ class CustomerOrderAdapter (private val customerOrders: List<Order>, private val
         val tvWeight1 = view.findViewById<TextView>(R.id.tvWeight1)
         val tvComision = view.findViewById<TextView>(R.id.tvComision)
         val tvCusName = view.findViewById<TextView>(R.id.tvCusName)
-        val btnSelect = view.findViewById<Button>(R.id.btnSelect)
+        val btnSelect = view.findViewById<Button>(R.id.btnDeleteMyOrders)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{

@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
+import com.example.android.android_import_it_application.models.MyOrder
 import com.example.android.android_import_it_application.models.Order
 
-class MyOrdersAdapter{ /*(private val myOrders: List<Order>, private val context: Context): RecyclerView.Adapter<MyOrdersAdapter.ViewHolder>() {
+class MyOrdersAdapter(private val myOrders: List<MyOrder>, private val context: Context): RecyclerView.Adapter<MyOrdersAdapter.ViewHolder>() {
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         //val ivCustOrders = view.findViewById<ImageView>(R.id.ivCustOrders)
         val tvTitleProduct = view.findViewById<TextView>(R.id.tvTitleProduct)
@@ -23,7 +24,7 @@ class MyOrdersAdapter{ /*(private val myOrders: List<Order>, private val context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
         val view= LayoutInflater.from(context)
-            .inflate(R.layout.prototype_customer_order_traveler, parent, false)
+            .inflate(R.layout.prototype_my_orders_traveler, parent, false)
         return ViewHolder(view)
     }
 
@@ -40,5 +41,5 @@ class MyOrdersAdapter{ /*(private val myOrders: List<Order>, private val context
 
     override fun getItemCount(): Int {
         return myOrders.size
-    }*/
+    }
 }

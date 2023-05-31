@@ -9,10 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.controllers.fragments.CouponFragment
-import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
-import com.example.android.android_import_it_application.controllers.fragments.SeeProductsFragment
-import com.example.android.android_import_it_application.controllers.fragments.WalletFragment
+import com.example.android.android_import_it_application.controllers.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getFragmentFor(item: MenuItem): Fragment {
         return when (item.itemId){
-            R.id.menu_home -> CustomerOrderFragment()
+            R.id.menu_home -> MyOrdersFragment()
             else -> WalletFragment()
         }
     }
