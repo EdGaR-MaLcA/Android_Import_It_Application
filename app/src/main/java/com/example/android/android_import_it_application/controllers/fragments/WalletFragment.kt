@@ -1,6 +1,8 @@
 package com.example.android.android_import_it_application.controllers.fragments
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.adapter.WalletAdapter
+import com.example.android.android_import_it_application.controllers.activities.WalletSeeMoreActivity
 import com.example.android.android_import_it_application.database.OrderDatabase
 import com.example.android.android_import_it_application.models.Order
 
-class WalletFragment : Fragment(){
+class WalletFragment : Fragment(), WalletAdapter.OnItemClickListener{
     var savedOrders: List<Order> = ArrayList()
     lateinit var recyclerView: RecyclerView
 
@@ -34,6 +37,13 @@ class WalletFragment : Fragment(){
         savedOrders= OrderDatabase.getInstance(requireContext()).getOrderDAO().getAllOrders()
         println(savedOrders)
         recyclerView.layoutManager= LinearLayoutManager(context)
-        recyclerView.adapter= WalletAdapter(savedOrders, requireContext())
+        recyclerView.adapter= WalletAdapter(savedOrders, requireContext(), this@WalletFragment)
+    }
+
+    override fun onItemClicked(order: Order){
+        Log.d("Principal", "Id: "+order.order_id)
+        val intento = Intent(context, WalletSeeMoreActivity::class.java)
+        intento.putExtra("Order", order)
+        startActivity(intento)
     }
 }

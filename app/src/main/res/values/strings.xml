@@ -102,4 +102,5 @@
     <string name="home">home</string>
     <string name="coupon">coupon</string>
     <string name="backwallet"><![CDATA[<<Back]]></string>
+    <string name="deleteWSM">Delete</string>
 </resources>
