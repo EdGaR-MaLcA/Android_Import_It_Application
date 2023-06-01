@@ -19,4 +19,7 @@ interface OrderDao {
 
     @Delete
     fun deleteOrder(vararg order: Order)
+
+    @Query("SELECT * FROM orders WHERE status = :status")
+    fun getOrdersByStatus(status: String): List<Order>
 }
