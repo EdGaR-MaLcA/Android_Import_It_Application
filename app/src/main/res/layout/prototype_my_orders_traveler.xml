@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="382dp"
     android:layout_height="226dp"
-    android:layout_margin="16dp"
+    android:layout_margin="15dp"
     app:cardBackgroundColor="#ACCAE1"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -93,8 +93,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:textColor="#000000"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/tvLocationProduct"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
@@ -113,13 +112,13 @@
 
         <Button
             android:id="@+id/btnDeleteMyOrders"
-            android:layout_width="171dp"
+            android:layout_width="98dp"
             android:layout_height="46dp"
             android:layout_marginStart="195dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="4dp"
-            android:backgroundTint="#3498DB"
-            android:text="@string/select_product"
+            android:backgroundTint="#E61010"
+            android:text="@string/btnDeleteMyOrders"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -163,6 +162,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
 </androidx.cardview.widget.CardView>
-

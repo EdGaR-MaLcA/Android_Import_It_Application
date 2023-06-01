@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-@Entity(tableName = "orders")
-class Order (
+@Entity(tableName = "my_orders")
+class MyOrder (
     @PrimaryKey(autoGenerate = false)
     @SerializedName("id")
     var order_id: Int,

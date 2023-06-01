@@ -2,7 +2,7 @@
     <string name="app_name">Android_Import_It_Application</string>
     <string name="customers_orders">Customer´s Orders</string>
     <string name="wallet">Wallet</string>
-    <string name="my_trips">My trips</string>
+    <string name="my_trips">My Orders</string>
     <string name="my_chats">My Chats</string>
     <string name="creado_por_1">Creado por</string>
     <string name="location_1">Lima, Peru</string>
@@ -29,7 +29,7 @@
     <string name="date">Date</string>
     <string name="description">Description</string>
     <string name="product">Product</string>
-    <string name="valid">Valid</string>
+    <string name="valid">Done</string>
     <string name="in_process">In Process</string>
     <string name="not_valid">Not Valid</string>
     <string name="incomes">Incomes</string>
@@ -101,4 +101,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">home</string>
     <string name="coupon">coupon</string>
+    <string name="backwallet"><![CDATA[<<Back]]></string>
+    <string name="deleteWSM">Delete</string>
+    <string name="btnDeleteMyOrders">Delete</string>
+    <string name="my_orders_fragment">My Orders</string>
 </resources>

@@ -43,12 +43,12 @@
         android:id="@+id/tvTrips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginBottom="69dp"
         android:text="@string/my_trips"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivTrips" />
+        app:layout_constraintBottom_toTopOf="@+id/ivConfig"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvChats"
@@ -65,7 +65,7 @@
         android:id="@+id/ivCustomerOrder"
         android:layout_width="73dp"
         android:layout_height="70dp"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="250dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,18 +93,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPortada" />
-
-    <ImageView
-        android:id="@+id/ivTrips"
-        android:layout_width="75dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvTrips"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCustomerOrder"
-        app:srcCompat="@drawable/_41933500_969880421498451_3635198305478158001_n" />
 
     <ImageView
         android:id="@+id/ivChats"
@@ -153,5 +141,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivProfile"
         app:srcCompat="@drawable/_43592181_901564154478738_9185666950291616316_n" />
+
+    <ImageView
+        android:id="@+id/ivMyOrders"
+        android:layout_width="77dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCustomerOrder"
+        app:srcCompat="@drawable/images" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
