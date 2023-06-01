@@ -5,15 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
 import com.example.android.android_import_it_application.database.OrderDatabase
 import com.example.android.android_import_it_application.models.Order
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.android.android_import_it_application.network.ImportItService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class CustomerOrderAdapter (private val customerOrders: List<Order>, private val context: Context): RecyclerView.Adapter<CustomerOrderAdapter.ViewHolder>() {
 
@@ -26,7 +29,7 @@ class CustomerOrderAdapter (private val customerOrders: List<Order>, private val
         val tvWeight1 = view.findViewById<TextView>(R.id.tvWeight1)
         val tvComision = view.findViewById<TextView>(R.id.tvComision)
         val tvCusName = view.findViewById<TextView>(R.id.tvCusName)
-        val btnSelect = view.findViewById<Button>(R.id.btnSelect)
+        val btnSelect = view.findViewById<Button>(R.id.btnDeleteMyOrders)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
@@ -35,6 +38,16 @@ class CustomerOrderAdapter (private val customerOrders: List<Order>, private val
         return ViewHolder(view)
     }
 
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/") // Ajusta la URL base según tu API
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    private val api = retrofit.create(ImportItService::class.java)
+
+    interface AdapterCallback {
+        fun onCreateOrderClicked(order: Order)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cusOrder = customerOrders[position]
@@ -45,11 +58,33 @@ class CustomerOrderAdapter (private val customerOrders: List<Order>, private val
         holder.tvComision.text = cusOrder.comision
         holder.tvCusName.text = cusOrder.name
         holder.btnSelect.setOnClickListener{
-            saveAlbum(cusOrder)
+            saveOrder(cusOrder)
+            val order = customerOrders[position]
+            sendOrderToServer(order)
         }
     }
 
-    private fun saveAlbum(cusOrder: Order) {
+    fun sendOrderToServer(order: Order) {
+        val call = api.createMyOrder(order)
+        call.enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    // La solicitud se completó exitosamente
+                    Toast.makeText(context, "Orden enviada al servidor.", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Manejar el caso de error en la solicitud
+                    Toast.makeText(context, "Error en la solicitud: ${response.code()}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                // Manejar el caso de error de comunicación
+                Toast.makeText(context, "Error en la comunicación con el servidor.", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun saveOrder(cusOrder: Order) {
         val query = OrderDatabase.getInstance(context).getOrderDAO().getById(cusOrder.order_id)
         if (query.isEmpty()) {
             OrderDatabase.getInstance(context).getOrderDAO().insertOrder(cusOrder)

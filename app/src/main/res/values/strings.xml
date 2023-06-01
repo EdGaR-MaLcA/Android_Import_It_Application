@@ -29,7 +29,7 @@
     <string name="date">Date</string>
     <string name="description">Description</string>
     <string name="product">Product</string>
-    <string name="valid">Valid</string>
+    <string name="valid">Done</string>
     <string name="in_process">In Process</string>
     <string name="not_valid">Not Valid</string>
     <string name="incomes">Incomes</string>
@@ -103,4 +103,6 @@
     <string name="coupon">coupon</string>
     <string name="backwallet"><![CDATA[<<Back]]></string>
     <string name="deleteWSM">Delete</string>
+    <string name="btnDeleteMyOrders">Delete</string>
+    <string name="my_orders_fragment">My Orders</string>
 </resources>

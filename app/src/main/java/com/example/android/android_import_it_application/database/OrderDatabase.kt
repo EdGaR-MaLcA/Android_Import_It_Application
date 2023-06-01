@@ -17,7 +17,7 @@ abstract class OrderDatabase : RoomDatabase(){
             if (INSTANCE == null){
                 //la bd no existe
                 INSTANCE = Room
-                    .databaseBuilder(context, OrderDatabase::class.java, "orders.db")
+                    .databaseBuilder(context, OrderDatabase::class.java, "orders1.db")
                     .allowMainThreadQueries()
                     .build()
             }
