@@ -16,12 +16,24 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 
-class SeeProductAdapter(private val seeProducts: List<ProductList>, private val context: Context, private val itemClickListener: OnItemClickListener): RecyclerView.Adapter<SeeProductAdapter.ViewHolder>() {
+class SeeProductAdapter(private var seeProducts: List<ProductList>, private val context: Context, private val itemClickListener: OnItemClickListener): RecyclerView.Adapter<SeeProductAdapter.ViewHolder>() {
+    private var listFilter: List<ProductList> = seeProducts.toMutableList()
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         val ivSeeProduct = view.findViewById<ImageView>(R.id.ivSeeProduct)
         val tvNameSeeProduct = view.findViewById<TextView>(R.id.tvNameSeeProduct)
         val tvPriceSeeProduct = view.findViewById<TextView>(R.id.tvPriceSeeProduct)
         val faSeeProduct = view.findViewById<FloatingActionButton>(R.id.faMoreSeeProduct)
+    }
+
+    fun filter(textSearch: String){
+        listFilter = if (textSearch.isEmpty()) {
+            seeProducts.toMutableList()
+        } else {
+            seeProducts.filter { element ->
+                element.name.contains(textSearch, ignoreCase = true)
+            }
+        }
+        notifyDataSetChanged()
     }
 
     interface OnItemClickListener{

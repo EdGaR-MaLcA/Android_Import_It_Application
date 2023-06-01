@@ -3,14 +3,8 @@ package com.example.android.android_import_it_application.controllers.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Button
-import android.widget.ImageButton
-import androidx.fragment.app.Fragment
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.controllers.fragments.CouponFragment
-import com.example.android.android_import_it_application.controllers.fragments.SeeProductsFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     /*
