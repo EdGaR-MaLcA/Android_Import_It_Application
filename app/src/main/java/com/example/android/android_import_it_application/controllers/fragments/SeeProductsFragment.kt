@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
@@ -23,6 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
     lateinit var recyclerView: RecyclerView
+    private lateinit var seeProducts: List<ProductList>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,9 +35,21 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
 
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView= view.findViewById(R.id.rvSeeProducts)
+        val svSeeProduct = view.findViewById<SearchView>(R.id.svSeeProduct)
+        svSeeProduct.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                filterProducts(view.context, newText)
+                return true
+            }
+        })
         loadSeeProducts(view.context)
     }
 
@@ -59,11 +73,22 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
                     val seeProducts: List<ProductList> = response.body()!!
                     recyclerView.layoutManager= LinearLayoutManager(context)
                     recyclerView.adapter= SeeProductAdapter(seeProducts, context, this@SeeProductsFragment)
+                    this@SeeProductsFragment.seeProducts =seeProducts
                 } else{
                     Log.d("Activity fail", "Error: "+response.code())
                 }
             }
         })
+    }
+
+    private fun filterProducts(context: Context, query: String) {
+        val filteredProducts = mutableListOf<ProductList>()
+        for (product in seeProducts) {
+            if (product.name.contains(query, ignoreCase = true)) {
+                filteredProducts.add(product)
+            }
+        }
+        recyclerView.adapter = SeeProductAdapter(filteredProducts, context, this@SeeProductsFragment)
     }
 
     override fun onItemClicked(seeProduct: ProductList){
