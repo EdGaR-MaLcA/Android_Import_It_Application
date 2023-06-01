@@ -21,24 +21,21 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
+class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener{
     lateinit var recyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.see_products, container, false)
-
-
+        return inflater.inflate(R.layout.fragment_see_product, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView= view.findViewById(R.id.rvSeeProducts)
+        recyclerView = view.findViewById(R.id.rvSeeProduct)
         loadSeeProducts(view.context)
     }
-
     private fun loadSeeProducts(context: Context) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")
@@ -70,6 +67,5 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
         val intent = Intent(context, DescriptionItemActivity::class.java)
         startActivity(intent)
     }
-
 
 }

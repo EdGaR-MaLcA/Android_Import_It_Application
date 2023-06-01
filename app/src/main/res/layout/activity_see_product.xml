@@ -6,11 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".controllers.activities.SeeProductActivity">
 
+    <ImageButton
+        android:id="@+id/ibArrow2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:contentDescription="@string/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/flecha" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svSeeProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="25dp"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="Search product" />
+
+    <Button
+        android:id="@+id/btFilter2"
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="25dp"
+        android:text="@string/filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/svSeeProduct" />
+
     <FrameLayout
         android:id="@+id/flFragmentSeeProduct"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginTop="220dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
