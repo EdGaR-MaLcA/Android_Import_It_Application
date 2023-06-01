@@ -30,7 +30,7 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.see_products, container, false)
+        return inflater.inflate(R.layout.fragment_see_product, container, false)
 
 
     }
@@ -38,7 +38,7 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView= view.findViewById(R.id.rvSeeProducts)
+        recyclerView= view.findViewById(R.id.rvSeeProduct)
         val svSeeProduct = view.findViewById<SearchView>(R.id.svSeeProduct)
         svSeeProduct.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {

@@ -5,8 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".controllers.fragments.SeeProductFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSeeProduct"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svSeeProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSeeProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
 </FrameLayout>
