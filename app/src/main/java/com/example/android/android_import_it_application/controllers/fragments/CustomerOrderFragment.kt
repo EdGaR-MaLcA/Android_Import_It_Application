@@ -44,7 +44,7 @@ class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                filterProducts(view.context, newText)
+                filterOrders(view.context, newText)
                 return true
             }
         })
@@ -79,14 +79,14 @@ class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
         })
     }
 
-    private fun filterProducts(context: Context, query: String) {
-        val filteredProducts = mutableListOf<Order>()
-        for (product in orders) {
-            if (product.tittle.contains(query, ignoreCase = true)) {
-                filteredProducts.add(product)
+    private fun filterOrders(context: Context, query: String) {
+        val filteredOrders = mutableListOf<Order>()
+        for (order in orders) {
+            if (order.tittle.contains(query, ignoreCase = true)) {
+                filteredOrders.add(order)
             }
         }
-        recyclerView.adapter = CustomerOrderAdapter(filteredProducts, context)
+        recyclerView.adapter = CustomerOrderAdapter(filteredOrders, context)
     }
 
     override fun onCreateOrderClicked(order: Order) {
