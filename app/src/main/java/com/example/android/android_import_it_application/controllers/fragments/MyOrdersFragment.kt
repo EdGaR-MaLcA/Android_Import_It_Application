@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MyOrdersFragment : Fragment(), MyOrdersAdapter.OnDeleteClickListener{
     lateinit var recyclerView: RecyclerView
-    //lateinit var myOrdersAdapter: MyOrdersAdapter
+    private lateinit var myOrders: List<MyOrder>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +38,17 @@ class MyOrdersFragment : Fragment(), MyOrdersAdapter.OnDeleteClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.rvMyOrders)
+        val svMyOrders = view.findViewById<SearchView>(R.id.svMyOrders)
+        svMyOrders.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                filterMyOrders(view.context, newText)
+                return true
+            }
+        })
         loadOrders(view.context)
     }
 
@@ -60,11 +72,22 @@ class MyOrdersFragment : Fragment(), MyOrdersAdapter.OnDeleteClickListener{
                     val myOrders: MutableList<MyOrder> = response.body()!!.toMutableList()
                     recyclerView.layoutManager= LinearLayoutManager(context)
                     recyclerView.adapter= MyOrdersAdapter(myOrders, context, this@MyOrdersFragment)
+                    this@MyOrdersFragment.myOrders =myOrders
                 } else{
                     Log.d("Activity fail", "Error: "+response.code())
                 }
             }
         })
+    }
+
+    private fun filterMyOrders(context: Context, query: String) {
+        val filteredMyOrders = mutableListOf<MyOrder>()
+        for (myOrder in myOrders) {
+            if (myOrder.tittle.contains(query, ignoreCase = true)) {
+                filteredMyOrders.add(myOrder)
+            }
+        }
+        recyclerView.adapter = MyOrdersAdapter(filteredMyOrders, context)
     }
 
     override fun onDeleteClick(myOrder: MyOrder) {

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
     lateinit var recyclerView: RecyclerView
+    private lateinit var orders: List<Order>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +37,17 @@ class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.rvCusOrders)
+        val svCusOrders = view.findViewById<SearchView>(R.id.svCusOrders)
+        svCusOrders.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                filterOrders(view.context, newText)
+                return true
+            }
+        })
         loadOrders(view.context)
     }
 
@@ -58,11 +71,22 @@ class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
                     val orders: List<Order> = response.body()!!
                     recyclerView.layoutManager= LinearLayoutManager(context)
                     recyclerView.adapter= CustomerOrderAdapter(orders, context)
+                    this@CustomerOrderFragment.orders =orders
                 } else{
                     Log.d("Activity fail", "Error: "+response.code())
                 }
             }
         })
+    }
+
+    private fun filterOrders(context: Context, query: String) {
+        val filteredOrders = mutableListOf<Order>()
+        for (order in orders) {
+            if (order.tittle.contains(query, ignoreCase = true)) {
+                filteredOrders.add(order)
+            }
+        }
+        recyclerView.adapter = CustomerOrderAdapter(filteredOrders, context)
     }
 
     override fun onCreateOrderClicked(order: Order) {
