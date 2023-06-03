@@ -14,6 +14,8 @@ class PaymentActivity : AppCompatActivity(){
 
         val ibArrowP1 = findViewById<ImageButton>(R.id.ibArrowP1)
         val bAddTarget = findViewById<Button>(R.id.bAddTarget)
+        val ibMasterCard = findViewById<ImageButton>(R.id.ibMasterCard)
+        val ibVisa = findViewById<ImageButton>(R.id.ibVisa)
 
         ibArrowP1.setOnClickListener {
             val intent: Intent = Intent(this, DescriptionItemActivity::class.java)
@@ -22,6 +24,16 @@ class PaymentActivity : AppCompatActivity(){
 
         bAddTarget.setOnClickListener {
             val intent: Intent = Intent(this, Payment2Activity::class.java)
+            startActivity(intent)
+        }
+
+        ibMasterCard.setOnClickListener {
+            val intent: Intent = Intent(this, Payment3Activity::class.java)
+            startActivity(intent)
+        }
+
+        ibVisa.setOnClickListener {
+            val intent: Intent = Intent(this, Payment3Activity::class.java)
             startActivity(intent)
         }
     }

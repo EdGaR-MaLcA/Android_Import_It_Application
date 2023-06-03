@@ -16,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 
-class SeeProductAdapter(private val seeProducts: List<ProductList>, private val context: Context, private val itemClickListener: OnItemClickListener): RecyclerView.Adapter<SeeProductAdapter.ViewHolder>() {
+class SeeProductAdapter(private var seeProducts: List<ProductList>, private val context: Context, private val itemClickListener: OnItemClickListener): RecyclerView.Adapter<SeeProductAdapter.ViewHolder>() {
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         val ivSeeProduct = view.findViewById<ImageView>(R.id.ivSeeProduct)
         val tvNameSeeProduct = view.findViewById<TextView>(R.id.tvNameSeeProduct)

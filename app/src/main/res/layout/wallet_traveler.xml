@@ -522,12 +522,12 @@
                 android:textColor="#000000"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button"
+                app:layout_constraintEnd_toStartOf="@+id/bBack"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/bBack"
                 android:layout_width="76dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="1dp"

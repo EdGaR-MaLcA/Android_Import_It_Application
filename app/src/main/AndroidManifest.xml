@@ -35,6 +35,9 @@
             android:name=".controllers.activities.Payment2Activity"
             android:exported="false" />
         <activity
+            android:name=".controllers.activities.Payment3Activity"
+            android:exported="false" />
+        <activity
             android:name=".controllers.activities.MainActivity"
             android:exported="true">
             <intent-filter>
