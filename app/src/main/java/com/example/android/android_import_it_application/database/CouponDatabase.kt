@@ -18,7 +18,7 @@ abstract class CouponDatabase : RoomDatabase(){
             if (INSTANCE == null){
                 //la bd no existe
                 INSTANCE = Room
-                    .databaseBuilder(context, CouponDatabase::class.java, "couponsv1.db")
+                    .databaseBuilder(context, CouponDatabase::class.java, "coupons.db")
                     .allowMainThreadQueries()
                     .build()
             }

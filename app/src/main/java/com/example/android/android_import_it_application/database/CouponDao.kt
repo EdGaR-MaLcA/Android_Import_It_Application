@@ -11,6 +11,12 @@ interface CouponDao {
     @Insert
     fun insertCoupon(vararg coupon: Coupon)
 
+    @Query("SELECT * FROM coupons WHERE code = :couponCode LIMIT 1")
+    fun getCouponByCode(couponCode: String): Coupon?
+
+    @Query("SELECT COUNT(*) FROM coupons")
+    suspend fun getCouponsCount(): Int
+
     @Update
     fun updateCoupon(vararg coupon: Coupon)
 

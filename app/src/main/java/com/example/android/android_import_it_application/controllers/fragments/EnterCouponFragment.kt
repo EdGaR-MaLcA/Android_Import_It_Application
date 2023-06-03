@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.adapter.CouponAdapter
@@ -78,12 +79,18 @@ class EnterCouponFragment : Fragment() {
                         Log.d("Activity", "Cupón válido")
                         val coupon = coupons.first { it.code == couponCode } // Obtener el cupón correspondiente al código
 
-                        saveCoupon(context, coupon)
+                        if (!isCouponAlreadySaved(context, coupon)) {
+                            saveCoupon(context, coupon)
+                            Toast.makeText(context, "El cupón ha sido ingresado correctamente", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(context, "El cupón ya ha sido guardado previamente", Toast.LENGTH_SHORT).show()
+                        }
 
                         showCoupons()
 
                     } else {
                         // El cupón no existe
+                        Toast.makeText(context, "El cupón no existe", Toast.LENGTH_SHORT).show()
                         Log.d("Activity", "Cupón inválido")
                     }
                 } else{
@@ -93,7 +100,12 @@ class EnterCouponFragment : Fragment() {
         })
     }
     private fun saveCoupon(context: Context, coupon: Coupon) {
-        CouponDatabase.getInstance(context).getCouponDAO().insertCoupon(coupon)
+       CouponDatabase.getInstance(context).getCouponDAO().insertCoupon(coupon)
+    }
+
+    private fun isCouponAlreadySaved(context: Context, coupon: Coupon): Boolean {
+        val savedCoupon = CouponDatabase.getInstance(context).getCouponDAO().getCouponByCode(coupon.code)
+        return savedCoupon != null
     }
 
     private fun showCoupons(){

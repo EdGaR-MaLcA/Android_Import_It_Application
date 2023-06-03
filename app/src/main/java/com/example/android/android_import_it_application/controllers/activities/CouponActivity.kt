@@ -5,7 +5,11 @@ import android.os.Bundle
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.fragments.CouponFragment
 import com.example.android.android_import_it_application.controllers.fragments.EnterCouponFragment
+import com.example.android.android_import_it_application.controllers.fragments.SavedCouponsFragment
 import com.example.android.android_import_it_application.controllers.fragments.SeeProductsFragment
+import com.example.android.android_import_it_application.database.CouponDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CouponActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +18,18 @@ class CouponActivity : AppCompatActivity() {
 
         val transaction = supportFragmentManager.beginTransaction()
 
-        transaction.add(R.id.flFragmentCoupon, EnterCouponFragment()).commitAllowingStateLoss()
+        val couponDao = CouponDatabase.getInstance(this).getCouponDAO()
 
+        GlobalScope.launch {
+            val couponCount = couponDao.getCouponsCount()
+
+            val fragment = if (couponCount > 0) {
+                SavedCouponsFragment()
+            } else {
+                EnterCouponFragment()
+            }
+
+            transaction.add(R.id.flFragmentCoupon, fragment).commitAllowingStateLoss()
+        }
     }
 }

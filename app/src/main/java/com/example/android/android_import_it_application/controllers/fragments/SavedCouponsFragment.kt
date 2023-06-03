@@ -11,6 +11,7 @@ import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.adapter.SavedCouponsAdapter
 import com.example.android.android_import_it_application.database.CouponDatabase
 import com.example.android.android_import_it_application.models.Coupon
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SavedCouponsFragment : Fragment() {
 
@@ -31,6 +32,12 @@ class SavedCouponsFragment : Fragment() {
         recyclerView=view.findViewById(R.id.rvSavedCoupons)
         recyclerView.layoutManager= LinearLayoutManager(context)
         recyclerView.adapter= SavedCouponsAdapter(savedCoupons, view.context)
+        val fabEnterCoupon = view.findViewById<FloatingActionButton>(R.id.fabEnterCoupon)
+        fabEnterCoupon.setOnClickListener {
+            val enterCouponFragment = EnterCouponFragment()
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.flFragmentCoupon, enterCouponFragment)
+                .commit()
+        }
     }
-
 }
