@@ -11,14 +11,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.adapter.CouponAdapter
-import com.example.android.android_import_it_application.controllers.activities.DescriptionItemActivity
 import com.example.android.android_import_it_application.controllers.activities.SavedCouponsActivity
 import com.example.android.android_import_it_application.database.CouponDatabase
 import com.example.android.android_import_it_application.models.Coupon
-import com.example.android.android_import_it_application.models.ProductList
 import com.example.android.android_import_it_application.network.ImportItService
 import okhttp3.OkHttpClient
 import retrofit2.Call

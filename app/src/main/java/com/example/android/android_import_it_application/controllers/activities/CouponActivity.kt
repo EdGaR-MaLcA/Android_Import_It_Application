@@ -3,10 +3,8 @@ package com.example.android.android_import_it_application.controllers.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.controllers.fragments.CouponFragment
 import com.example.android.android_import_it_application.controllers.fragments.EnterCouponFragment
 import com.example.android.android_import_it_application.controllers.fragments.SavedCouponsFragment
-import com.example.android.android_import_it_application.controllers.fragments.SeeProductsFragment
 import com.example.android.android_import_it_application.database.CouponDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
