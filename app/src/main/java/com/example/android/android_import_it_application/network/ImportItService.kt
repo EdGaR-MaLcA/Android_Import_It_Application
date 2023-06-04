@@ -8,6 +8,9 @@ interface ImportItService {
     @GET("orders")
     fun getOrders(): Call<List<Order>>
 
+    @GET("productList")
+    fun getProductLists(): Call<List<ProductList>>
+
     @GET("travelerOrders")
     fun getMyOrders(): Call<List<MyOrder>>
 

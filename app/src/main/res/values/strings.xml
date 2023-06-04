@@ -102,4 +102,7 @@
     <string name="home">home</string>
     <string name="coupon">coupon</string>
     <string name="fasty">Fasty</string>
+    <string name="my_orders_fragment">My Orders</string>
+    <string name="btnDeleteMyOrders">Delete</string>
+    <string name="deleteWSM">delete</string>
 </resources>
