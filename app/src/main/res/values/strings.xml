@@ -105,4 +105,6 @@
     <string name="my_orders_fragment">My Orders</string>
     <string name="btnDeleteMyOrders">Delete</string>
     <string name="deleteWSM">delete</string>
+    <string name="buyer">Buyer</string>
+    <string name="traveler">Traveler</string>
 </resources>

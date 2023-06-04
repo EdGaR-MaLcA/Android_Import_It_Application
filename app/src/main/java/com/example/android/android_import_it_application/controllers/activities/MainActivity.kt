@@ -12,9 +12,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btBuyer = findViewById<Button>(R.id.btBuyer)
+        val btTraveler = findViewById<Button>(R.id.btTraveler)
 
         btBuyer.setOnClickListener{
             val intent: Intent = Intent(this, BuyerActivity::class.java)
+            startActivity(intent)
+        }
+
+        btTraveler.setOnClickListener{
+            val intent: Intent = Intent(this, TravelerActivity::class.java)
             startActivity(intent)
         }
 
