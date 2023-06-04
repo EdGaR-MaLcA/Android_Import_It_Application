@@ -20,6 +20,9 @@
             android:name=".controllers.activities.CouponActivity"
             android:exported="false" />
         <activity
+            android:name=".controllers.activities.WalletSeeMoreActivity"
+            android:exported="true" />
+        <activity
             android:name=".controllers.activities.WalletActivity"
             android:exported="false" />
         <activity
