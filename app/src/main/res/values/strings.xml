@@ -107,4 +107,6 @@
     <string name="deleteWSM">delete</string>
     <string name="buyer">Buyer</string>
     <string name="traveler">Traveler</string>
+    <string name="done">Done</string>
+    <string name="all">All</string>
 </resources>
