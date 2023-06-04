@@ -11,9 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
-import com.example.android.android_import_it_application.adapter.CouponAdapter
 import com.example.android.android_import_it_application.adapter.CustomerOrderAdapter
-import com.example.android.android_import_it_application.models.Coupon
 import com.example.android.android_import_it_application.models.Order
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call

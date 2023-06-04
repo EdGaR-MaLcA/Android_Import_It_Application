@@ -5,12 +5,6 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ImportItService {
-    @GET("coupon")
-    fun getCoupons(): Call<List<Coupon>>
-
-    @GET("productList")
-    fun getProductLists(): Call<List<ProductList>>
-
     @GET("orders")
     fun getOrders(): Call<List<Order>>
 
