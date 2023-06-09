@@ -8,7 +8,7 @@ import java.io.Serializable
 @Entity(tableName = "coupons")
 class Coupon (
     @PrimaryKey
-    @SerializedName("idCoupon")
+    @SerializedName("id")
     var coupon_id: Int,
     @SerializedName("title")
     var title: String,
