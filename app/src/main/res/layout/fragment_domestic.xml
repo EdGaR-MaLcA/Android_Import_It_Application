@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controllers.fragments.SeeProductsFragment">
+    tools:context=".controllers.fragments.DomesticFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,12 +11,12 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/svSeeProduct"
+            android:id="@+id/svDomestic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSeeProduct"
+            android:id="@+id/rvDomestic"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
