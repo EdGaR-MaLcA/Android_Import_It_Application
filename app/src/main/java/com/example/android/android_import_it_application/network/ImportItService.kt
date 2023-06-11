@@ -23,4 +23,10 @@ interface ImportItService {
 
     @DELETE("travelerOrders/{order_id}")
     fun deleteOrder(@Path("order_id") orderId: Int): Call<Void>
+
+    @GET("users/{id}")
+    fun getUserById(@Path("id") userId: String): Call<User>
+
+    @GET("users")
+    fun getUsers(): Call<List<User>>
 }

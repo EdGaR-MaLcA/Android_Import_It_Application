@@ -13,19 +13,19 @@ class User (
     @SerializedName("name")
     var name_user: String,
     @SerializedName("age")
-    var age: Int,
+    var age: String,
     @SerializedName("password")
     var password: String,
     @SerializedName("dni")
-    var dni: Int,
+    var dni: String,
     @SerializedName("genre")
     var genre: String,
     @SerializedName("day")
-    var day: Int,
+    var day: String,
     @SerializedName("month")
-    var month: Int,
+    var month: String,
     @SerializedName("year")
-    var year: Int,
+    var year: String,
     @SerializedName("email")
     var email: String,
     @SerializedName("phone")
