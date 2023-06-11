@@ -3,53 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiLType"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiLSize">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/type" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiLSize"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiLWeight">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/total_size" />
-    </com.google.android.material.textfield.TextInputLayout>
+    android:layout_height="match_parent"
+    tools:context=".controllers.activities.DescriptionItemActivity">
 
     <ImageView
-        android:id="@+id/ivCell"
-        android:layout_width="135dp"
-        android:layout_height="145dp"
+        android:id="@+id/ivDescription"
+        android:layout_width="305dp"
+        android:layout_height="325dp"
         android:layout_marginStart="124dp"
         android:layout_marginEnd="124dp"
-        android:layout_marginBottom="500dp"
+        android:layout_marginBottom="250dp"
         android:contentDescription="@string/cellphone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cell" />
+        tools:srcCompat="@drawable/cell" />
 
     <TextView
         android:id="@+id/tvDescriptionItem"
@@ -59,6 +28,8 @@
         android:layout_marginTop="11dp"
         android:layout_marginEnd="170dp"
         android:text="@string/description"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idline" />
@@ -68,96 +39,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="31dp"
         android:contentDescription="@string/line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameProduct"
+        app:layout_constraintTop_toBottomOf="@+id/ivDescription"
         app:srcCompat="@drawable/line" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiLWeight"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionItem">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/weight" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tvTotalPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/total_price"
-        app:layout_constraintBottom_toTopOf="@+id/bProceedPay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiLType" />
-
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/result"
-        app:layout_constraintBottom_toTopOf="@+id/bProceedPay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiLType" />
 
     <Button
         android:id="@+id/bProceedPay"
         android:layout_width="361dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="154dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="24dp"
         android:text="@string/proceed_to_pay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiLType" />
-
-    <TextView
-        android:id="@+id/tvWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginBottom="12dp"
-        android:text="@string/tvweight"
-        app:layout_constraintBottom_toTopOf="@+id/tiLWeight"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginBottom="12dp"
-        android:text="@string/tvtotal_size"
-        app:layout_constraintBottom_toTopOf="@+id/tiLSize"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/type_o_importation"
-        app:layout_constraintBottom_toTopOf="@+id/tiLType"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -173,15 +73,41 @@
         app:srcCompat="@drawable/flecha" />
 
     <TextView
-        android:id="@+id/tvNameProduct"
+        android:id="@+id/tvProductNameDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="147dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="147dp"
-        android:text="Iphone 13 pro max"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="13dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvProductName"
+        app:layout_constraintStart_toEndOf="@+id/tvProductName"
+        tools:text="Nombre del producto" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/name_product"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivCell" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionItem" />
+
+    <TextView
+        android:id="@+id/tvTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="17dp"
+        android:text="@string/total_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
+
+    <TextView
+        android:id="@+id/tvPriceDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTotalPrice"
+        app:layout_constraintStart_toEndOf="@+id/tvTotalPrice"
+        tools:text="Precio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

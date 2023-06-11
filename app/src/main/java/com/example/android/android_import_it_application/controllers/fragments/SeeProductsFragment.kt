@@ -93,6 +93,7 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
 
     override fun onItemClicked(seeProduct: ProductList){
         val intent = Intent(context, DescriptionItemActivity::class.java)
+        intent.putExtra("ProductList", seeProduct)
         startActivity(intent)
     }
 
