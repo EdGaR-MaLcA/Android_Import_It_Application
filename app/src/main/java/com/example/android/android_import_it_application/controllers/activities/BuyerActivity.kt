@@ -24,5 +24,11 @@ class BuyerActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val ibCalculator = findViewById<ImageButton>(R.id.ibCalculator)
+        ibCalculator.setOnClickListener {
+            val intent: Intent = Intent(this, CalculatorActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

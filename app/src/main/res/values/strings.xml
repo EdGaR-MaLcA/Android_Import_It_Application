@@ -109,4 +109,19 @@
     <string name="traveler">Traveler</string>
     <string name="done">Done</string>
     <string name="all">All</string>
+    <string name="calculate">Calculate</string>
+    <string name="calculate_the_price_before_you_buy">Calculate the price before you buy!!!</string>
+    <string name="choose_a_category">Choose a category</string>
+    <string name="subtotal">SubTotal</string>
+    <string name="approximated_cost">Approximated Cost</string>
+    <string name="cost">Cost</string>
+    <string name="subtotal1">SubTotal</string>
+    <string name="textsubtotal">The cost before taxes or coupons</string>
+    <string name="textcategory">Pick one of most common options</string>
+    <string name="textcomision">How much you will be charged based on the product category</string>
+    <string name="comission_range">Comission Range</string>
+    <string name="textappcost">This is the approximated price</string>
+    <string name="textrestrictions">**The price can vary depending on the final product ordered and based on the traveler´s preferred comission. The final price can be around the approximated price shown at the right.</string>
+    <string name="dollar">$</string>
+    <string name="dollarr">$</string>
 </resources>
