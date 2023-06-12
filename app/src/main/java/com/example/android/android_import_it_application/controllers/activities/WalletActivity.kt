@@ -2,6 +2,7 @@ package com.example.android.android_import_it_application.controllers.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.android_import_it_application.R
@@ -15,7 +16,13 @@ class WalletActivity: AppCompatActivity() {
         setContentView(R.layout.activity_wallet)
 
         val transaction = supportFragmentManager.beginTransaction()
+        val ibBackWallet = findViewById<ImageButton>(R.id.ibBackWallet)
 
         transaction.add(R.id.flWallet, WalletFragment()).commitAllowingStateLoss()
+
+        ibBackWallet.setOnClickListener {
+            val intent: Intent = Intent(this, TravelerActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

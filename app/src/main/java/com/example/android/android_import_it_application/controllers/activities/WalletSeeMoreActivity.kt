@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils.replace
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -24,7 +25,7 @@ class WalletSeeMoreActivity : AppCompatActivity() {
     lateinit var tvUrlWSM: TextView
     lateinit var tvStatusWSM: TextView
     lateinit var btnDeleteWallet: Button
-    lateinit var tvBackWallet2: TextView
+    lateinit var ibBackWalletSeeMore: ImageButton
     private lateinit var fragmentManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,7 @@ class WalletSeeMoreActivity : AppCompatActivity() {
         tvUrlWSM = findViewById(R.id.tvUrlWSM)
         tvStatusWSM = findViewById(R.id.tvStatusWSM)
         btnDeleteWallet = findViewById(R.id.btnDeleteWallet)
-        tvBackWallet2 = findViewById(R.id.tvBackWallet2)
+        ibBackWalletSeeMore = findViewById(R.id.ibBackWalletSeeMore)
 
         initFields(this)
     }
@@ -59,6 +60,10 @@ class WalletSeeMoreActivity : AppCompatActivity() {
             finish()
         }
 
+        ibBackWalletSeeMore.setOnClickListener {
+            val intent: Intent = Intent(this, WalletActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

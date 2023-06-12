@@ -66,33 +66,23 @@
         android:layout_width="73dp"
         android:layout_height="70dp"
         android:layout_marginStart="90dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="66dp"
         android:layout_marginEnd="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svSeeProduct"
+        app:layout_constraintTop_toBottomOf="@+id/ivPortada"
         app:srcCompat="@drawable/_500833" />
 
     <ImageView
         android:id="@+id/ivWallet"
         android:layout_width="74dp"
         android:layout_height="72dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svSeeProduct"
+        app:layout_constraintTop_toBottomOf="@+id/ivPortada"
         app:srcCompat="@drawable/_43609710_1401677750608996_6257735395411065766_n" />
-
-    <SearchView
-        android:id="@+id/svSeeProduct"
-        android:layout_width="364dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPortada" />
 
     <ImageView
         android:id="@+id/ivChats"

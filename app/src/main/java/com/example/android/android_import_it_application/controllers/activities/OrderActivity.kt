@@ -14,11 +14,11 @@ class OrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_products_traveler)
 
-        val tvBack = findViewById<TextView>(R.id.tvBackCusOrders)
+        /*val tvBack = findViewById<TextView>(R.id.tvBackCusOrders)
 
         tvBack.setOnClickListener {
             val intent: Intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        }
+        }*/
     }
 }
