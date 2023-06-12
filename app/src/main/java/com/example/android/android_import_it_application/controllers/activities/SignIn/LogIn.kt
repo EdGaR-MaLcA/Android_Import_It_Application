@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.activities.BuyerActivity
@@ -37,6 +38,12 @@ class LogIn : AppCompatActivity() {
         val etDni = findViewById<EditText>(R.id.etDni)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val tvSignUp = findViewById<TextView>(R.id.tvSignUp)
+
+        tvSignUp.setOnClickListener {
+            val intent = Intent(this@LogIn, SignUp::class.java)
+            startActivity(intent)
+        }
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")

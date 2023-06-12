@@ -29,4 +29,7 @@ interface ImportItService {
 
     @GET("users")
     fun getUsers(): Call<List<User>>
+
+    @POST("users")
+    fun createUser(@Body user: User): Call<User>
 }

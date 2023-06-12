@@ -56,13 +56,13 @@
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="53dp"
         android:text="Iniciar sesión"
-        app:layout_constraintBottom_toTopOf="@+id/textView27"
+        app:layout_constraintBottom_toTopOf="@+id/tvSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
