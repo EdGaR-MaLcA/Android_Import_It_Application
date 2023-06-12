@@ -19,8 +19,11 @@ interface ImportItService {
     fun getMyOrders(): Call<List<MyOrder>>
 
     @POST("travelerOrders")
-    fun createMyOrder(@Body order: Order): Call<Void>
+    fun createMyOrder(@Body order: Order): Call<MyOrder>
 
     @DELETE("travelerOrders/{order_id}")
     fun deleteOrder(@Path("order_id") orderId: Int): Call<Void>
+
+    @GET("orders/{orderId}")
+    fun getMyOrderById(@Path("orderId") orderId: String): Call<MyOrder>
 }
