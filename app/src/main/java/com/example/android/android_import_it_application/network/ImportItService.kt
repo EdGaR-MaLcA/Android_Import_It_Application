@@ -2,6 +2,7 @@ package com.example.android.android_import_it_application.network
 
 import com.example.android.android_import_it_application.models.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface ImportItService {
@@ -19,7 +20,8 @@ interface ImportItService {
     fun getMyOrders(): Call<List<MyOrder>>
 
     @POST("travelerOrders")
-    fun createMyOrder(@Body order: Order): Call<MyOrder>
+    fun createOrder(@Body myOrder: MyOrder): Call<Void> // Replace with your API endpoint and request model
+
 
     @DELETE("travelerOrders/{order_id}")
     fun deleteOrder(@Path("order_id") orderId: Int): Call<Void>

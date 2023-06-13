@@ -20,7 +20,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
+class CustomerOrderFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     private lateinit var orders: List<Order>
 
@@ -85,10 +85,5 @@ class CustomerOrderFragment : Fragment(), CustomerOrderAdapter.AdapterCallback {
             }
         }
         recyclerView.adapter = CustomerOrderAdapter(filteredOrders, context)
-    }
-
-    override fun onCreateOrderClicked(order: Order) {
-        val adapter = recyclerView.adapter as? CustomerOrderAdapter
-        adapter?.sendOrderToServer(order)
     }
 }
