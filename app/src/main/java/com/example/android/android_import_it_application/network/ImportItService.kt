@@ -15,6 +15,9 @@ interface ImportItService {
     @GET("productList")
     fun getProductLists(): Call<List<ProductList>>
 
+    @GET("domesticShipment")
+    fun getDomesticShipments(): Call<List<DomesticShipment>>
+
     @GET("travelerOrders")
     fun getMyOrders(): Call<List<MyOrder>>
 

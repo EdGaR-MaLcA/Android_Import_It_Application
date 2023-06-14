@@ -12,8 +12,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
+import com.example.android.android_import_it_application.adapter.DomesticAdapter
 import com.example.android.android_import_it_application.adapter.SeeProductAdapter
-import com.example.android.android_import_it_application.controllers.activities.DescriptionItemActivity
+import com.example.android.android_import_it_application.controllers.activities.DomesticDetails
+import com.example.android.android_import_it_application.models.DomesticShipment
 import com.example.android.android_import_it_application.models.ProductList
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call
@@ -22,25 +24,23 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
+class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
+    private lateinit var domesticShipments: List<DomesticShipment>
     lateinit var recyclerView: RecyclerView
-    private lateinit var seeProducts: List<ProductList>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_see_product, container, false)
-
-
+        return inflater.inflate(R.layout.fragment_domestic, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView= view.findViewById(R.id.rvSeeProduct)
-        val svSeeProduct = view.findViewById<SearchView>(R.id.svSeeProduct)
-        svSeeProduct.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        recyclerView = view.findViewById(R.id.rvDomestic)
+        val svDomestic = view.findViewById<SearchView>(R.id.svDomestic)
+        svDomestic.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 return false
             }
@@ -50,30 +50,31 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
                 return true
             }
         })
-        loadSeeProducts(view.context)
+        loadDomestic(view.context)
     }
 
-    private fun loadSeeProducts(context: Context) {
+    private fun loadDomestic(context: Context) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val seeProductService: ImportItService = retrofit.create(ImportItService::class.java)
-        val request=seeProductService.getProductLists()
-        request.enqueue(object : Callback<List<ProductList>> {
-            override fun onFailure(call: Call<List<ProductList>>, t: Throwable) {
+
+        val domesticService: ImportItService = retrofit.create(ImportItService::class.java)
+        val request=domesticService.getDomesticShipments()
+        request.enqueue(object : Callback<List<DomesticShipment>> {
+            override fun onFailure(call: Call<List<DomesticShipment>>, t: Throwable) {
                 Log.d("Activity Fail", "Error: $t")
             }
 
             override fun onResponse(
-                call: Call<List<ProductList>>,
-                response: Response<List<ProductList>>
+                call: Call<List<DomesticShipment>>,
+                response: Response<List<DomesticShipment>>
             ) {
                 if(response.isSuccessful){
-                    val seeProducts: List<ProductList> = response.body()!!
+                    val domesticShipments: List<DomesticShipment> = response.body()!!
                     recyclerView.layoutManager= LinearLayoutManager(context)
-                    recyclerView.adapter= SeeProductAdapter(seeProducts, context, this@SeeProductsFragment)
-                    this@SeeProductsFragment.seeProducts =seeProducts
+                    recyclerView.adapter= DomesticAdapter(domesticShipments, context, this@DomesticFragment)
+                    this@DomesticFragment.domesticShipments = domesticShipments
                 } else{
                     Log.d("Activity fail", "Error: "+response.code())
                 }
@@ -82,20 +83,19 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
     }
 
     private fun filterProducts(context: Context, query: String) {
-        val filteredProducts = mutableListOf<ProductList>()
-        for (product in seeProducts) {
-            if (product.name.contains(query, ignoreCase = true)) {
+        val filteredProducts = mutableListOf<DomesticShipment>()
+        for (product in domesticShipments) {
+            if (product.product_name.contains(query, ignoreCase = true)) {
                 filteredProducts.add(product)
             }
         }
-        recyclerView.adapter = SeeProductAdapter(filteredProducts, context, this@SeeProductsFragment)
+        recyclerView.adapter = DomesticAdapter(filteredProducts, context, this@DomesticFragment)
     }
 
-    override fun onItemClicked(seeProduct: ProductList){
-        val intent = Intent(context, DescriptionItemActivity::class.java)
-        intent.putExtra("ProductList", seeProduct)
+    override fun onItemClicked(domesticShipment: DomesticShipment) {
+        val intent = Intent(context, DomesticDetails::class.java)
+        intent.putExtra("DomesticShipment", domesticShipment)
         startActivity(intent)
     }
-
 
 }
