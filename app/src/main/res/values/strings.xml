@@ -76,8 +76,7 @@
     <string name="filter">Filter</string>
     <string name="arrow">arrow</string>
     <string name="type">Traveler</string>
-    <string name="total_size">56 X 96 cm</string>
-    <string name="weight">5.245 grames</string>
+    <string name="name_product">Product name</string>
     <string name="total_price">Total price</string>
     <string name="result">$600.00</string>
     <string name="proceed_to_pay">proceed to pay</string>

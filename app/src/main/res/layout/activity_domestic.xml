@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controllers.activities.SeeProductActivity">
+    tools:context=".controllers.activities.DomesticActivity">
 
     <ImageButton
-        android:id="@+id/ibArrow2"
+        android:id="@+id/ibArrowDomestic"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/flecha" />
 
     <FrameLayout
-        android:id="@+id/flFragmentSeeProduct"
+        android:id="@+id/flFragmentDomestic"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="80dp"

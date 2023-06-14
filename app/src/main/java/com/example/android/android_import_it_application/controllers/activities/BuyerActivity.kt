@@ -12,8 +12,9 @@ class BuyerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard_buyer)
 
-        val ibDomestic = findViewById<ImageButton>(R.id.ibDomestic)
-        ibDomestic.setOnClickListener {
+
+        val ibFasty = findViewById<ImageButton>(R.id.ibFasty)
+        ibFasty.setOnClickListener {
             val intent: Intent = Intent(this, SeeProductActivity::class.java)
             startActivity(intent)
         }
@@ -21,6 +22,12 @@ class BuyerActivity : AppCompatActivity() {
         val ibCoupon = findViewById<ImageButton>(R.id.ibCoupons)
         ibCoupon.setOnClickListener{
             val intent: Intent = Intent(this, CouponActivity::class.java)
+            startActivity(intent)
+        }
+
+        val ibDomestic = findViewById<ImageButton>(R.id.ibDomestic)
+        ibDomestic.setOnClickListener {
+            val intent: Intent = Intent(this, DomesticActivity::class.java)
             startActivity(intent)
         }
 
