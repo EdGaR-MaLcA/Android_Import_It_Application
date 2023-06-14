@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".controllers.activities.DirectionFormAgregateBuyerActivity">
+
+    <TextView
+        android:text="Departament"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextDepartament"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter departament" />
+
+    <TextView
+        android:text="Direction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextDirection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter direction" />
+
+    <TextView
+        android:text="District"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextDistrict"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter district" />
+
+    <TextView
+        android:text="DNI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextDNI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter DNI" />
+
+    <TextView
+        android:text="Lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextLastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter lastname" />
+
+    <TextView
+        android:text="Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter name" />
+
+    <TextView
+        android:text="Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter phone" />
+
+    <TextView
+        android:text="Province"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextProvince"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter province" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar" />
+
+    <Button
+        android:id="@+id/buttonDiscard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descartar" />
+
+</LinearLayout>
+

@@ -44,6 +44,12 @@
             android:name=".controllers.activities.ChatBuyerActivity"
             android:exported="false" />
         <activity
+            android:name=".controllers.activities.BuyerDirectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.activities.DirectionFormAgregateBuyerActivity"
+            android:exported="false" />
+        <activity
             android:name=".controllers.activities.SeeProductActivity"
             android:exported="false" />
         <activity

@@ -30,5 +30,11 @@ class BuyerActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val ibDirection = findViewById<ImageButton>(R.id.ibDirections)
+        ibDirection.setOnClickListener{
+            val intent: Intent = Intent(this, BuyerDirectionActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
