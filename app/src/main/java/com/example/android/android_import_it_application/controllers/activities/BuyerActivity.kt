@@ -24,5 +24,11 @@ class BuyerActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val ibChats = findViewById<ImageButton>(R.id.ibChats)
+        ibChats.setOnClickListener{
+            val intent: Intent = Intent(this, ChatBuyerActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

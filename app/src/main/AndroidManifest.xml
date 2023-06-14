@@ -41,6 +41,9 @@
             android:name=".controllers.activities.BuyerActivity"
             android:exported="false" />
         <activity
+            android:name=".controllers.activities.ChatBuyerActivity"
+            android:exported="false" />
+        <activity
             android:name=".controllers.activities.SeeProductActivity"
             android:exported="false" />
         <activity
