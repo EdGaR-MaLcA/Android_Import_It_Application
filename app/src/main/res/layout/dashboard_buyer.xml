@@ -155,16 +155,19 @@
         app:srcCompat="@drawable/calculator" />
 
     <ImageButton
-        android:id="@+id/ibConfiguration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/ibPlaceOrder"
+        android:layout_width="98dp"
+        android:layout_height="64dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="12dp"
         android:background="@color/white"
         android:contentDescription="@string/configuration"
+        android:scaleType="fitCenter"
+        android:src="@drawable/order"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/configuration" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/ibPerfil"
@@ -177,7 +180,7 @@
         android:contentDescription="@string/perfil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ibCostumer"
-        app:layout_constraintStart_toEndOf="@+id/ibConfiguration"
+        app:layout_constraintStart_toEndOf="@+id/ibPlaceOrder"
         app:srcCompat="@drawable/selfie" />
 
     <ImageButton
