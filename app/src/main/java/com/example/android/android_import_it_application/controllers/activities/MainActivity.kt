@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.android.android_import_it_application.R
+import com.example.android.android_import_it_application.controllers.activities.SignIn.SelectRole
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,12 +16,12 @@ class MainActivity : AppCompatActivity() {
         val btTraveler = findViewById<Button>(R.id.btTraveler)
 
         btBuyer.setOnClickListener{
-            val intent: Intent = Intent(this, BuyerActivity::class.java)
+            val intent: Intent = Intent(this, SelectRole::class.java)
             startActivity(intent)
         }
 
         btTraveler.setOnClickListener{
-            val intent: Intent = Intent(this, TravelerActivity::class.java)
+            val intent: Intent = Intent(this, SelectRole::class.java)
             startActivity(intent)
         }
 
