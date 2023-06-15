@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.models.MyOrder
-import com.example.android.android_import_it_application.models.Order
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call
 import retrofit2.Callback
