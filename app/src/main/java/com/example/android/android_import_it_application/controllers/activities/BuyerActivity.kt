@@ -37,5 +37,11 @@ class BuyerActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val ibPerfil = findViewById<ImageButton>(R.id.ibPerfil)
+        ibPerfil.setOnClickListener {
+            val intent: Intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

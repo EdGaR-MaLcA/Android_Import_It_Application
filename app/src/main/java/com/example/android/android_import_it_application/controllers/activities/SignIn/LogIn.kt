@@ -61,16 +61,18 @@ class LogIn : AppCompatActivity() {
             request.enqueue(object : Callback<List<User>> {
                 override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
                     if (response.isSuccessful) {
-                        val userList = response.body()
-                        val user = userList?.find { it.dni == dni }
+                        val userList: List<User> = response.body()!!
+                        val user: User? = userList.find { it.dni == dni }
                         if (user != null && user.password == password) {
                             // La contraseña coincide con la información del usuario
                             Toast.makeText(applicationContext, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
                             if (role == "buyer") {
                                 val intent = Intent(this@LogIn, BuyerActivity::class.java)
+                                intent.putExtra("User", user)
                                 startActivity(intent)
                             } else {
                                 val intent = Intent(this@LogIn, TravelerActivity::class.java)
+                                intent.putExtra("User", user)
                                 startActivity(intent)
                             }
                             // Realiza las acciones necesarias para el inicio de sesión exitoso
