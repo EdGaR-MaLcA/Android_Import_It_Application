@@ -12,6 +12,7 @@ class BuyerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard_buyer)
 
+        val dni = intent.getStringExtra("DNI")
 
         val ibFasty = findViewById<ImageButton>(R.id.ibFasty)
         ibFasty.setOnClickListener {
@@ -40,6 +41,20 @@ class BuyerActivity : AppCompatActivity() {
         val ibPerfil = findViewById<ImageButton>(R.id.ibPerfil)
         ibPerfil.setOnClickListener {
             val intent: Intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        val ibOrders = findViewById<ImageButton>(R.id.ibOrders)
+        ibOrders.setOnClickListener {
+            val intent: Intent = Intent(this, ShowOrdersActivity::class.java)
+            intent.putExtra("DNI", dni)
+            startActivity(intent)
+        }
+
+        val ibPlaceOrder = findViewById<ImageButton>(R.id.ibPlaceOrder)
+        ibPlaceOrder.setOnClickListener {
+            val intent: Intent = Intent(this, PlaceOrderForm::class.java)
+            intent.putExtra("DNI", dni)
             startActivity(intent)
         }
 

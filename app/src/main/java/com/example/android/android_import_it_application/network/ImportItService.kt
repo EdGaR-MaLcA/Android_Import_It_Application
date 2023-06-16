@@ -42,4 +42,7 @@ interface ImportItService {
 
     @POST("users")
     fun createUser(@Body user: User): Call<User>
+
+    @POST("orders")
+    fun placeOrder(@Body order: Order): Call<Void>
 }

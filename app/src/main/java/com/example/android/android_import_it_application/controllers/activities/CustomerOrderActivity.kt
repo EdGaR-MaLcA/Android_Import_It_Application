@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.ImageButton
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
-import com.example.android.android_import_it_application.controllers.fragments.SeeProductsFragment
 
 class CustomerOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +13,7 @@ class CustomerOrderActivity : AppCompatActivity() {
         setContentView(R.layout.activity_customer_order)
 
         val transaction = supportFragmentManager.beginTransaction()
-        val ibBackCusOrder = findViewById<ImageButton>(R.id.ibBackCusOrder)
+        val ibBackCusOrder = findViewById<ImageButton>(R.id.ibBackDashboard)
 
         transaction.add(R.id.flFragmentCustomerOrder, CustomerOrderFragment()).commitAllowingStateLoss()
 
