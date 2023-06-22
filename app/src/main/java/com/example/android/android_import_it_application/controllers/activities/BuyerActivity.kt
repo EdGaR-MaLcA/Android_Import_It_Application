@@ -29,6 +29,7 @@ class BuyerActivity : AppCompatActivity() {
         val ibDomestic = findViewById<ImageButton>(R.id.ibDomestic)
         ibDomestic.setOnClickListener {
             val intent: Intent = Intent(this, DomesticActivity::class.java)
+            intent.putExtra("DNI", dni)
             startActivity(intent)
         }
 

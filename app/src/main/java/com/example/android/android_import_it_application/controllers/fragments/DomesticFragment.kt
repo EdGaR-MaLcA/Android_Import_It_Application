@@ -17,6 +17,7 @@ import com.example.android.android_import_it_application.adapter.SeeProductAdapt
 import com.example.android.android_import_it_application.controllers.activities.DomesticDetails
 import com.example.android.android_import_it_application.models.DomesticShipment
 import com.example.android.android_import_it_application.models.ProductList
+import com.example.android.android_import_it_application.models.User
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,8 +26,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
-    private lateinit var domesticShipments: List<DomesticShipment>
+    private lateinit var domesticShips: List<DomesticShipment>
     lateinit var recyclerView: RecyclerView
+    private lateinit var dni: String
+    private lateinit var user_id: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +42,18 @@ class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.rvDomestic)
+
+        val bundle = arguments
+        dni = bundle?.getString("DNI", "") ?: ""
+        getUserIDByDNI(dni) { userID ->
+            if (userID != null) {
+                Log.d("User ID", "ID del usuario con DNI $dni: $userID")
+                user_id = userID
+            } else {
+                 Log.d("User ID", "No se encontró ningún usuario con el DNI $dni")
+            }
+        }
+
         val svDomestic = view.findViewById<SearchView>(R.id.svDomestic)
         svDomestic.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
@@ -72,9 +87,10 @@ class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
             ) {
                 if(response.isSuccessful){
                     val domesticShipments: List<DomesticShipment> = response.body()!!
+                    domesticShips = domesticShipments.filter {it.userId == user_id}
                     recyclerView.layoutManager= LinearLayoutManager(context)
-                    recyclerView.adapter= DomesticAdapter(domesticShipments, context, this@DomesticFragment)
-                    this@DomesticFragment.domesticShipments = domesticShipments
+                    recyclerView.adapter= DomesticAdapter(domesticShips, context, this@DomesticFragment)
+                    this@DomesticFragment.domesticShips = domesticShips
                 } else{
                     Log.d("Activity fail", "Error: "+response.code())
                 }
@@ -84,12 +100,40 @@ class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
 
     private fun filterProducts(context: Context, query: String) {
         val filteredProducts = mutableListOf<DomesticShipment>()
-        for (product in domesticShipments) {
+        for (product in domesticShips) {
             if (product.product_name.contains(query, ignoreCase = true)) {
                 filteredProducts.add(product)
             }
         }
         recyclerView.adapter = DomesticAdapter(filteredProducts, context, this@DomesticFragment)
+    }
+
+    private fun getUserIDByDNI(dni: String, callback: (String?) -> Unit) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val userService: ImportItService = retrofit.create(ImportItService::class.java)
+        val request = userService.getUsers()
+        request.enqueue(object : Callback<List<User>> {
+            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+                Log.d("Activity Fail", "Error: $t")
+                callback(null)
+            }
+
+            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+                if (response.isSuccessful) {
+                    val users: List<User> = response.body()!!
+                    val user = users.find { it.dni == dni }
+                    val userID = user?.user_id
+                    callback(userID.toString())
+                } else {
+                    Log.d("Activity fail", "Error: " + response.code())
+                    callback(null)
+                }
+            }
+        })
     }
 
     override fun onItemClicked(domesticShipment: DomesticShipment) {
