@@ -41,16 +41,14 @@ class ProfileActivity : AppCompatActivity() {
     private fun initFields() {
         val userObject: User? = intent.getSerializableExtra("User") as? User
 
-        if(userObject != null){
-            tvNameProfile.text = userObject.name_user
-            tvAgeProfile.text = userObject.age
-            tvDNIProfile.text = userObject.dni
-            tvDayProfile.text = userObject.day
-            tvMonthProfile.text = userObject.month
-            tvYearProfile.text = userObject.year
-            tvCellProfile.text = userObject.phone
-            tvDirectionProfile.text = userObject.address
-        }
+        tvNameProfile.text = userObject?.name_user
+        tvAgeProfile.text = userObject?.age
+        tvDNIProfile.text = userObject?.dni
+        tvDayProfile.text = userObject?.day
+        tvMonthProfile.text = userObject?.month
+        tvYearProfile.text = userObject?.year
+        tvCellProfile.text = userObject?.phone
+        tvDirectionProfile.text = userObject?.address
 
 
     }
