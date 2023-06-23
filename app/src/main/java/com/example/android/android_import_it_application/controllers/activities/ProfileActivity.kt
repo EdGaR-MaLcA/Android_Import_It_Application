@@ -35,24 +35,22 @@ class ProfileActivity : AppCompatActivity() {
         tvCellProfile = findViewById(R.id.tvCellProfileEdit)
         tvDirectionProfile = findViewById(R.id.tvDirectionProfileEdit)
 
-        initFields(this)
+        initFields()
     }
 
-    private fun initFields(context: Context) {
+    private fun initFields() {
         val userObject: User? = intent.getSerializableExtra("User") as? User
 
-        tvNameProfile.text = userObject?.name_user
-        tvAgeProfile.text = userObject?.age
-        tvDNIProfile.text = userObject?.dni
-        tvDayProfile.text = userObject?.day
-        tvMonthProfile.text = userObject?.month
-        tvYearProfile.text = userObject?.year
-        tvCellProfile.text = userObject?.phone
-        tvDirectionProfile.text = userObject?.address
-
-
-
-
+        if(userObject != null){
+            tvNameProfile.text = userObject.name_user
+            tvAgeProfile.text = userObject.age
+            tvDNIProfile.text = userObject.dni
+            tvDayProfile.text = userObject.day
+            tvMonthProfile.text = userObject.month
+            tvYearProfile.text = userObject.year
+            tvCellProfile.text = userObject.phone
+            tvDirectionProfile.text = userObject.address
+        }
 
 
     }
