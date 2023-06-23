@@ -20,6 +20,7 @@ class SavedCouponsAdapter (private val savedCoupons: List<Coupon>, private val c
         val tvCode=view.findViewById<TextView>(R.id.tvCode)
         val tvSituation=view.findViewById<TextView>(R.id.tvSituation)
         val tvDescription=view.findViewById<TextView>(R.id.tvDescription)
+        val tvDiscount = view.findViewById<TextView>(R.id.tvDiscount)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,6 +35,7 @@ class SavedCouponsAdapter (private val savedCoupons: List<Coupon>, private val c
         holder.tvCode.text=coupon.code
         holder.tvSituation.text=coupon.situation
         holder.tvDescription.text=coupon.description
+        holder.tvDiscount.text=coupon.discount
     }
 
     override fun getItemCount(): Int {

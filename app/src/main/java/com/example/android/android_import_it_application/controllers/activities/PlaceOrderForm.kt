@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.models.Order
@@ -27,8 +28,14 @@ class PlaceOrderForm : AppCompatActivity() {
         val etAmount = findViewById<EditText>(R.id.etAmount)
         val etPrice = findViewById<EditText>(R.id.etPrice)
         val etWeight = findViewById<EditText>(R.id.etWeight)
+        val ibBackPlaceOrder = findViewById<ImageButton>(R.id.ibBackPlaceOrder)
 
         val btnPlaceOrder = findViewById<Button>(R.id.btnPlaceOrder)
+
+        ibBackPlaceOrder.setOnClickListener {
+            val intent: Intent = Intent(this, BuyerActivity::class.java)
+            startActivity(intent)
+        }
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")

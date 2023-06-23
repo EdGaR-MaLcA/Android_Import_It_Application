@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:textColor="#131313"
             app:layout_constraintStart_toEndOf="@+id/ivProductDomestic"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="name product" />
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="19dp"
+            android:textColor="#131313"
             app:layout_constraintStart_toEndOf="@+id/ivProductDomestic"
             app:layout_constraintTop_toBottomOf="@+id/tvNameDomestic"
             tools:text="date" />
@@ -49,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
+            android:textColor="#131313"
             app:layout_constraintStart_toEndOf="@+id/ivProductDomestic"
             app:layout_constraintTop_toBottomOf="@+id/tvDateDomestic"
             tools:text="Departure time" />
