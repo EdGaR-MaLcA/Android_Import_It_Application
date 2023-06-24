@@ -29,8 +29,10 @@ class EditProfileActivity : AppCompatActivity() {
         val btSaveEdit = findViewById<Button>(R.id.btSaveEdit)
         val ibArrow = findViewById<ImageButton>(R.id.ibArrowProfileEdit)
 
+
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("User", user)
             startActivity(intent)
         }
 

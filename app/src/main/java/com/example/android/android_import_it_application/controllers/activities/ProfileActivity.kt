@@ -30,6 +30,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
 
         tvNameProfile = findViewById(R.id.tvNameProfileEdit)
         tvAgeProfile = findViewById(R.id.tvAgeProfileEdit)
@@ -44,8 +45,17 @@ class ProfileActivity : AppCompatActivity() {
         val ibEditProfile = findViewById<Button>(R.id.btEditProfile)
 
         ibArrow.setOnClickListener {
-            val intent: Intent = Intent(this, BuyerActivity::class.java)
-            startActivity(intent)
+            if(role == "buyer"){
+                val intent: Intent = Intent(this, BuyerActivity::class.java)
+                intent.putExtra("User", user)
+                intent.putExtra("role", role)
+                startActivity(intent)
+            } else{
+                val intent: Intent = Intent(this, TravelerActivity::class.java)
+                intent.putExtra("User", user)
+                intent.putExtra("role", role)
+                startActivity(intent)
+            }
         }
 
         ibEditProfile.setOnClickListener {
