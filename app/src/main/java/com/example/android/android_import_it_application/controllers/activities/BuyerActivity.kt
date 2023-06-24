@@ -2,6 +2,7 @@ package com.example.android.android_import_it_application.controllers.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ class BuyerActivity : AppCompatActivity() {
         setContentView(R.layout.dashboard_buyer)
 
         val dni = intent.getStringExtra("DNI")
+        Log.d("DNI", "DNI obtenido: $dni")
 
         val ibFasty = findViewById<ImageButton>(R.id.ibFasty)
         ibFasty.setOnClickListener {

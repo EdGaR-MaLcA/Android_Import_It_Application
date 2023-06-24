@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -22,15 +23,20 @@ class DomesticDetails : AppCompatActivity() {
     lateinit var tvTotalCostDetail: TextView
     lateinit var tvTrackingDetail: TextView
     lateinit var tvDestinyDetail: TextView
+    private lateinit var dni: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_domestic_details)
 
+        val dni = intent.getStringExtra("DNI")
+
         val ibArrow = findViewById<ImageButton>(R.id.ibArrowDomesticDetails)
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, DomesticActivity::class.java)
+            intent.putExtra("DNI", dni)
             startActivity(intent)
+            Log.d("DNI", "DNI pasado: $dni")
         }
 
         ivDomesticDetail = findViewById(R.id.ivDetailDomestic)
