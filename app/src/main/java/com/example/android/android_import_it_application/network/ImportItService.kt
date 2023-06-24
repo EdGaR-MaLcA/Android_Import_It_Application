@@ -44,7 +44,7 @@ interface ImportItService {
     fun createUser(@Body user: User): Call<User>
 
     @PUT("users/{id}")
-    fun updateUser(@Path("id") userId: String): Call<User>
+    fun updateUser(@Path("id") userId: Int, @Body user: User): Call<User>
 
     @POST("orders")
     fun placeOrder(@Body order: Order): Call<Void>

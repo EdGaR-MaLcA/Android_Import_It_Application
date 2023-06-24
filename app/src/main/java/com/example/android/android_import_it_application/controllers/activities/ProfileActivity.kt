@@ -1,8 +1,11 @@
 package com.example.android.android_import_it_application.controllers.activities
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.android.android_import_it_application.R
@@ -26,6 +29,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        val user = intent.getSerializableExtra("User")
+
         tvNameProfile = findViewById(R.id.tvNameProfileEdit)
         tvAgeProfile = findViewById(R.id.tvAgeProfileEdit)
         tvDNIProfile = findViewById(R.id.tvDNIProfileEdit)
@@ -34,6 +39,20 @@ class ProfileActivity : AppCompatActivity() {
         tvYearProfile = findViewById(R.id.tvYearProfile)
         tvCellProfile = findViewById(R.id.tvCellProfileEdit)
         tvDirectionProfile = findViewById(R.id.tvDirectionProfileEdit)
+
+        val ibArrow = findViewById<ImageButton>(R.id.ibArrowProfile)
+        val ibEditProfile = findViewById<Button>(R.id.btEditProfile)
+
+        ibArrow.setOnClickListener {
+            val intent: Intent = Intent(this, BuyerActivity::class.java)
+            startActivity(intent)
+        }
+
+        ibEditProfile.setOnClickListener {
+            val intent: Intent = Intent(this, EditProfileActivity::class.java)
+            intent.putExtra("User", user)
+            startActivity(intent)
+        }
 
         initFields()
     }
