@@ -25,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class OrdersFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var orders: List<Order>
-    private lateinit var dni: String
+    private var dni: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +40,9 @@ class OrdersFragment : Fragment() {
         recyclerView = view.findViewById(R.id.rvOrders)
 
         val bundle = arguments
-        dni = bundle?.getString("DNI", "") ?: ""
+        if (dni.isEmpty()) {
+            dni = bundle?.getString("DNI", "") ?: ""
+        }
 
         loadOrders(view.context)
     }

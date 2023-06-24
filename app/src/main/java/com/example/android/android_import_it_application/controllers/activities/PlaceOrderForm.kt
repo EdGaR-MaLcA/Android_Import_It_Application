@@ -3,8 +3,10 @@ package com.example.android.android_import_it_application.controllers.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.models.Order
@@ -27,6 +29,14 @@ class PlaceOrderForm : AppCompatActivity() {
         val etAmount = findViewById<EditText>(R.id.etAmount)
         val etPrice = findViewById<EditText>(R.id.etPrice)
         val etWeight = findViewById<EditText>(R.id.etWeight)
+
+        val ibArrow = findViewById<ImageButton>(R.id.ibArrow)
+        ibArrow.setOnClickListener {
+            val intent: Intent = Intent(this, BuyerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            startActivity(intent)
+            Log.d("DNI", "DNI pasado: $dni")
+        }
 
         val btnPlaceOrder = findViewById<Button>(R.id.btnPlaceOrder)
 

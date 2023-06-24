@@ -3,6 +3,7 @@ package com.example.android.android_import_it_application.controllers.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.fragments.CustomerOrderFragment
@@ -27,7 +28,9 @@ class ShowOrdersActivity : AppCompatActivity() {
 
         ibBackDashboard.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
+            intent.putExtra("DNI", dni)
             startActivity(intent)
+            Log.d("DNI", "DNI pasado: $dni")
         }
     }
 }
