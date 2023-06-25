@@ -1,9 +1,11 @@
 package com.example.android.android_import_it_application.controllers.activities
 
+import android.content.SharedPreferences
 import com.example.android.android_import_it_application.database.FormData
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.android_import_it_application.R
 import kotlinx.coroutines.launch
@@ -22,10 +24,14 @@ class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
     private lateinit var editTextProvince: EditText
     private lateinit var buttonSave: Button
     private lateinit var buttonDiscard: Button
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buyer_direction_agregate)
+
+
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
 
         editTextDepartament = findViewById(R.id.editTextDepartament)
         editTextDirection = findViewById(R.id.editTextDirection)
@@ -57,21 +63,18 @@ class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
         val phone = editTextPhone.text.toString()
         val province = editTextProvince.text.toString()
 
-        val formData = FormData(
-            departament = departament,
-            direction = direction,
-            district = district,
-            dni = dni,
-            lastname = lastname,
-            name = name,
-            phone = phone,
-            province = province
-        )
+        val editor = sharedPreferences.edit()
+        editor.putString("nombre", name)
+        editor.putString("apellido", lastname)
+        editor.putString("dni", dni)
+        editor.putString("telefono", phone)
+        editor.putString("province", province)
+        editor.putString("district", district)
+        editor.putString("direccion", direction)
+        editor.putString("depaertamento", departament)
+        editor.apply()
+        Toast.makeText(this, "Datos guardados", Toast.LENGTH_SHORT).show()
 
-        // Guardar los datos en la base de datos
-        lifecycleScope.launch {
-            AppDatabase.getInstance(applicationContext).formDataDao().insert(formData)
-        }
 
         finish()
     }

@@ -111,4 +111,5 @@
     <string name="all">All</string>
     <string name="agregate_direction">Agregate Direction</string>
     <string name="load_direction">Load Direction</string>
+    <string name="textview">text</string>
 </resources>

@@ -20,7 +20,8 @@ class BuyerDirectionActivity:AppCompatActivity() {
         }
 
         loadAddressButton.setOnClickListener {
-            // Acciones a realizar cuando se presiona "Cargar Dirección"
+            val intent: Intent = Intent(this, DirectionLoadActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -1,33 +1,41 @@
 package com.example.android.android_import_it_application.controllers.activities
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.android_import_it_application.R
 import androidx.room.Room
 import com.example.android.android_import_it_application.database.MyDatabase
 
 class DirectionLoadActivity : AppCompatActivity(){
-    private lateinit var loadDataButton: Button
-    private lateinit var myDatabase: MyDatabase
-
+    private lateinit var textViewDatos: TextView
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.buyer_direction)
+        setContentView(R.layout.buyerdirectionshow)
 
-        myDatabase = Room.databaseBuilder(applicationContext, MyDatabase::class.java, "my-database").build()
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
 
-        loadDataButton = findViewById(R.id.btnload)
-        loadDataButton.setOnClickListener {
-            cargarDatosGuardados()
-        }
+        textViewDatos = findViewById(R.id.textViewdata)
+
+        mostrarDatosGuardados()
     }
 
-    private fun cargarDatosGuardados() {
-        val userList = myDatabase.userDao().getAllUsers()
-
-        // userList contiene los datos cargados desde la base de datos
-
-        // Puedes mostrar los datos en una lista, en una vista de texto, etc.
+    private fun mostrarDatosGuardados() {
+        val nombre = sharedPreferences.getString("name", "")
+        val apellido = sharedPreferences.getString("lastname", "")
+        val telefono = sharedPreferences.getString("phone", "")
+        val dni = sharedPreferences.getString("dni", "")
+        val district = sharedPreferences.getString("district", "")
+        val province = sharedPreferences.getString("province", "")
+        val datos = "Nombre: $nombre \n" +
+                "Apellido: $apellido \n" +
+                "Telefono: $telefono \n" +
+                "Dni: $dni \n" +
+                "Distrito: $district \n" +
+                "Provincia: $province"
+        textViewDatos.text = datos
     }
 }
 
