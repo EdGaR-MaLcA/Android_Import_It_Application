@@ -23,18 +23,22 @@ class DirectionLoadActivity : AppCompatActivity(){
     }
 
     private fun mostrarDatosGuardados() {
-        val name = sharedPreferences.getString("name", "")
-        val lastname = sharedPreferences.getString("lastname", "")
-        val phone = sharedPreferences.getString("phone", "")
+        val name = sharedPreferences.getString("nombre", "")
+        val lastname = sharedPreferences.getString("apellido", "")
+        val phone = sharedPreferences.getString("telefono", "")
         val dni = sharedPreferences.getString("dni", "")
         val district = sharedPreferences.getString("district", "")
         val province = sharedPreferences.getString("province", "")
+        val direcccion = sharedPreferences.getString("direccion", "")
+        val departamen = sharedPreferences.getString("depaertamento", "")
         val datos = "Nombre: $name \n" +
                 "Apellido: $lastname \n" +
                 "Telefono: $phone \n" +
                 "Dni: $dni \n" +
                 "Distrito: $district \n" +
-                "Provincia: $province"
+                "Provincia: $province \n"+
+                "Direccion: $direcccion \n"+
+                "Departamento: $departamen"
         textViewDatos.text = datos
     }
 }
