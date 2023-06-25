@@ -1,7 +1,9 @@
 package com.example.android.android_import_it_application.controllers.activities
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.android_import_it_application.R
@@ -11,6 +13,9 @@ import com.example.android.android_import_it_application.database.MyDatabase
 class DirectionLoadActivity : AppCompatActivity(){
     private lateinit var textViewDatos: TextView
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var buttonBuscar: Button
+    private var dnifilt: String? = null
+    private lateinit var editTextApellido: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buyerdirectionshow)
@@ -19,6 +24,13 @@ class DirectionLoadActivity : AppCompatActivity(){
 
         textViewDatos = findViewById(R.id.textViewdata)
 
+        editTextApellido = findViewById(R.id.filterdni)
+        buttonBuscar = findViewById(R.id.btnsearch)
+
+        buttonBuscar.setOnClickListener {
+            dnifilt = editTextApellido.text.toString()
+            mostrarDatosGuardados()
+        }
         mostrarDatosGuardados()
     }
 
@@ -40,6 +52,11 @@ class DirectionLoadActivity : AppCompatActivity(){
                 "Direccion: $direcccion \n"+
                 "Departamento: $departamen"
         textViewDatos.text = datos
+        if (dnifilt != null && dni != null && dni.equals(dnifilt, ignoreCase = true)) {
+            textViewDatos.visibility = View.VISIBLE
+        } else {
+            textViewDatos.visibility = View.GONE
+        }
     }
 }
 

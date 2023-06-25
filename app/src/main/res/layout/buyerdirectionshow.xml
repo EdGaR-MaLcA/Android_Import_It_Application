@@ -6,6 +6,31 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView24"
+        android:layout_width="217dp"
+        android:layout_height="69dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/directions"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="146dp"
+        android:layout_height="148dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
+        app:srcCompat="@drawable/_41933500_969880421498451_3635198305478158001_n" />
+
+    <TextView
         android:id="@+id/textViewdata"
         android:layout_width="258dp"
         android:layout_height="280dp"
@@ -15,27 +40,42 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21" />
+        app:layout_constraintVertical_bias="0.964" />
 
     <TextView
         android:id="@+id/textViewdata3"
-        android:layout_width="229dp"
-        android:layout_height="79dp"
-        android:text="@string/textview"
+        android:layout_width="170dp"
+        android:layout_height="19dp"
+        android:text="Ingresar DNI:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.624" />
+        app:layout_constraintVertical_bias="0.397" />
 
-    <TextView
-        android:id="@+id/textViewdata4"
-        android:layout_width="229dp"
-        android:layout_height="79dp"
-        android:text="@string/textview"
+    <EditText
+        android:id="@+id/filterdni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <Button
+        android:id="@+id/btnsearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintVertical_bias="0.538" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
