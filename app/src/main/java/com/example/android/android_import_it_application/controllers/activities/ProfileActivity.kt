@@ -61,6 +61,7 @@ class ProfileActivity : AppCompatActivity() {
         ibEditProfile.setOnClickListener {
             val intent: Intent = Intent(this, EditProfileActivity::class.java)
             intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
