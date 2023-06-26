@@ -1,6 +1,8 @@
 package com.example.android.android_import_it_application.controllers.activities
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
@@ -42,5 +44,15 @@ class ChatBuyerActivity: AppCompatActivity() {
     private fun sendMessage(message: String) {
         messagesList.add(message)
         messagesAdapter.notifyDataSetChanged()
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                val intent: Intent = Intent(this, BuyerActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
