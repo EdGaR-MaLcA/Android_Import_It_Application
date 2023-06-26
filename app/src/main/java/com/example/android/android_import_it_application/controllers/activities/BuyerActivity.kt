@@ -21,12 +21,16 @@ class BuyerActivity : AppCompatActivity() {
         val ibFasty = findViewById<ImageButton>(R.id.ibFasty)
         ibFasty.setOnClickListener {
             val intent: Intent = Intent(this, SeeProductActivity::class.java)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
         val ibCoupon = findViewById<ImageButton>(R.id.ibCoupons)
         ibCoupon.setOnClickListener{
             val intent: Intent = Intent(this, CouponActivity::class.java)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
@@ -34,12 +38,16 @@ class BuyerActivity : AppCompatActivity() {
         ibDomestic.setOnClickListener {
             val intent: Intent = Intent(this, DomesticActivity::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
         val ibCalculator = findViewById<ImageButton>(R.id.ibCalculator)
         ibCalculator.setOnClickListener {
             val intent: Intent = Intent(this, CalculatorActivity::class.java)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
@@ -55,6 +63,8 @@ class BuyerActivity : AppCompatActivity() {
         ibOrders.setOnClickListener {
             val intent: Intent = Intent(this, ShowOrdersActivity::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
@@ -62,6 +72,8 @@ class BuyerActivity : AppCompatActivity() {
         ibPlaceOrder.setOnClickListener {
             val intent: Intent = Intent(this, PlaceOrderForm::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
