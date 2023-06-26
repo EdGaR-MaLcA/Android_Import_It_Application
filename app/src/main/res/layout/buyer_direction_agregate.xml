@@ -20,102 +20,102 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Departament" />
+            android:text="@string/departamento" />
 
         <EditText
             android:id="@+id/editTextDepartament"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter departament" />
+            android:hint="@string/ingresa_departamento" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Direction" />
+            android:text="@string/direcci_n3" />
 
         <EditText
             android:id="@+id/editTextDirection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter direction" />
+            android:hint="@string/ingresa_direcci_n" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="District" />
+            android:text="@string/distrito" />
 
         <EditText
             android:id="@+id/editTextDistrict"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter district" />
+            android:hint="@string/ingresa_distrito" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DNI" />
+            android:text="@string/dni3" />
 
         <EditText
             android:id="@+id/editTextDNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter DNI" />
+            android:hint="@string/ingresa_dni" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lastname" />
+            android:text="@string/apellido" />
 
         <EditText
             android:id="@+id/editTextLastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter lastname" />
+            android:hint="@string/ingresa_apellido" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name" />
+            android:text="@string/nombre3" />
 
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter name" />
+            android:hint="@string/ingresa_nombre" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone" />
+            android:text="@string/celular" />
 
         <EditText
             android:id="@+id/editTextPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter phone" />
+            android:hint="@string/ingresa_nro_de_celular" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Province" />
+            android:text="@string/provincia" />
 
         <EditText
             android:id="@+id/editTextProvince"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter province" />
+            android:hint="@string/ingresa_provincia" />
 
         <Button
             android:id="@+id/buttonSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Guardar" />
+            android:text="@string/guardar" />
 
         <Button
             android:id="@+id/buttonDiscard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descartar" />
+            android:text="@string/descartar" />
 
     </LinearLayout>
 

@@ -41,8 +41,8 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="217dp"
-        android:layout_height="69dp"
+        android:layout_width="259dp"
+        android:layout_height="67dp"
         android:fontFamily="sans-serif"
         android:text="@string/directions"
         android:textSize="48sp"
