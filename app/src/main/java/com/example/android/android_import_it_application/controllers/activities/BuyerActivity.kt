@@ -15,6 +15,8 @@ class BuyerActivity : AppCompatActivity() {
 
         val dni = intent.getStringExtra("DNI")
         Log.d("DNI", "DNI obtenido: $dni")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
 
         val ibFasty = findViewById<ImageButton>(R.id.ibFasty)
         ibFasty.setOnClickListener {
@@ -44,6 +46,8 @@ class BuyerActivity : AppCompatActivity() {
         val ibPerfil = findViewById<ImageButton>(R.id.ibPerfil)
         ibPerfil.setOnClickListener {
             val intent: Intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

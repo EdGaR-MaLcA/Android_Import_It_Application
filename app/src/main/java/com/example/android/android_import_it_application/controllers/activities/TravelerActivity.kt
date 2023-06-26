@@ -11,6 +11,9 @@ class TravelerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_traveler)
 
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         val ivCustomerOrder = findViewById<ImageView>(R.id.ivCustomerOrder)
         ivCustomerOrder.setOnClickListener {
             val intent: Intent = Intent(this, CustomerOrderActivity::class.java)
@@ -26,6 +29,14 @@ class TravelerActivity : AppCompatActivity() {
         val ivMyOrders = findViewById<ImageView>(R.id.ivMyOrders)
         ivMyOrders.setOnClickListener {
             val intent: Intent = Intent(this, MyOrdersActivity::class.java)
+            startActivity(intent)
+        }
+
+        val ivProfile = findViewById<ImageView>(R.id.ivProfile)
+        ivProfile.setOnClickListener {
+            val intent: Intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
     }

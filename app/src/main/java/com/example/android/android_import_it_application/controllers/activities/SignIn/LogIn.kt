@@ -69,11 +69,13 @@ class LogIn : AppCompatActivity() {
                             if (role == "buyer") {
                                 val intent = Intent(this@LogIn, BuyerActivity::class.java)
                                 intent.putExtra("User", user)
+                                intent.putExtra("role", role)
                                 intent.putExtra("DNI", dni)
                                 startActivity(intent)
                             } else {
                                 val intent = Intent(this@LogIn, TravelerActivity::class.java)
                                 intent.putExtra("User", user)
+                                intent.putExtra("role", role)
                                 startActivity(intent)
                             }
                             // Realiza las acciones necesarias para el inicio de sesión exitoso
