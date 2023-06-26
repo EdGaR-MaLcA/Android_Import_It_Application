@@ -21,6 +21,7 @@ class BuyerActivity : AppCompatActivity() {
         val ibFasty = findViewById<ImageButton>(R.id.ibFasty)
         ibFasty.setOnClickListener {
             val intent: Intent = Intent(this, SeeProductActivity::class.java)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)
@@ -29,6 +30,7 @@ class BuyerActivity : AppCompatActivity() {
         val ibCoupon = findViewById<ImageButton>(R.id.ibCoupons)
         ibCoupon.setOnClickListener{
             val intent: Intent = Intent(this, CouponActivity::class.java)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)
@@ -38,6 +40,7 @@ class BuyerActivity : AppCompatActivity() {
         ibDomestic.setOnClickListener {
             val intent: Intent = Intent(this, DomesticActivity::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)
@@ -46,6 +49,7 @@ class BuyerActivity : AppCompatActivity() {
         val ibCalculator = findViewById<ImageButton>(R.id.ibCalculator)
         ibCalculator.setOnClickListener {
             val intent: Intent = Intent(this, CalculatorActivity::class.java)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)
@@ -54,6 +58,7 @@ class BuyerActivity : AppCompatActivity() {
         val ibPerfil = findViewById<ImageButton>(R.id.ibPerfil)
         ibPerfil.setOnClickListener {
             val intent: Intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)
@@ -80,12 +85,18 @@ class BuyerActivity : AppCompatActivity() {
         val ibChats = findViewById<ImageButton>(R.id.ibChats)
         ibChats.setOnClickListener{
             val intent: Intent = Intent(this, ChatBuyerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
         val ibDirection = findViewById<ImageButton>(R.id.ibDirections)
         ibDirection.setOnClickListener{
             val intent: Intent = Intent(this, BuyerDirectionActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

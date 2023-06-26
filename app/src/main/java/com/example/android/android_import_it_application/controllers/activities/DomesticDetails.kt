@@ -30,11 +30,15 @@ class DomesticDetails : AppCompatActivity() {
         setContentView(R.layout.activity_domestic_details)
 
         val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
 
         val ibArrow = findViewById<ImageButton>(R.id.ibArrowDomesticDetails)
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, DomesticActivity::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
             Log.d("DNI", "DNI pasado: $dni")
         }

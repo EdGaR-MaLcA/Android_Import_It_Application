@@ -13,6 +13,10 @@ class SeeProductActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_see_product)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         val ibArrow = findViewById<ImageButton>(R.id.ibArrow2)
         val transaction = supportFragmentManager.beginTransaction()
 
@@ -20,6 +24,9 @@ class SeeProductActivity : AppCompatActivity(){
 
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

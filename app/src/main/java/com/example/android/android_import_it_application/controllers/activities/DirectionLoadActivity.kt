@@ -23,6 +23,10 @@ class DirectionLoadActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buyerdirectionshow)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
 
         textViewDatos = findViewById(R.id.textViewdata)
@@ -39,6 +43,9 @@ class DirectionLoadActivity : AppCompatActivity(){
 
         ibBackDirections.setOnClickListener {
             val intent: Intent = Intent(this, BuyerDirectionActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

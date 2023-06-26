@@ -76,6 +76,7 @@ class LogIn : AppCompatActivity() {
                                 val intent = Intent(this@LogIn, TravelerActivity::class.java)
                                 intent.putExtra("User", user)
                                 intent.putExtra("role", role)
+                                intent.putExtra("DNI", dni)
                                 startActivity(intent)
                             }
                             // Realiza las acciones necesarias para el inicio de sesión exitoso

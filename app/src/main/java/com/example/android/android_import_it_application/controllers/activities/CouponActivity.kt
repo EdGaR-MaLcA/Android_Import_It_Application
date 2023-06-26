@@ -19,11 +19,17 @@ class CouponActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
 
         val couponDao = CouponDatabase.getInstance(this).getCouponDAO()
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
 
         val ibBackCoupon = findViewById<ImageButton>(R.id.ibBackCoupon)
 
         ibBackCoupon.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

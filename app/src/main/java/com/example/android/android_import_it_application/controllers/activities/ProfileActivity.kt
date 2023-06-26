@@ -29,6 +29,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        val dni = intent.getStringExtra("DNI")
         val user = intent.getSerializableExtra("User")
         val role = intent.getStringExtra("role")
 
@@ -47,11 +48,13 @@ class ProfileActivity : AppCompatActivity() {
         ibArrow.setOnClickListener {
             if(role == "buyer"){
                 val intent: Intent = Intent(this, BuyerActivity::class.java)
+                intent.putExtra("DNI", dni)
                 intent.putExtra("User", user)
                 intent.putExtra("role", role)
                 startActivity(intent)
             } else{
                 val intent: Intent = Intent(this, TravelerActivity::class.java)
+                intent.putExtra("DNI", dni)
                 intent.putExtra("User", user)
                 intent.putExtra("role", role)
                 startActivity(intent)
@@ -60,6 +63,7 @@ class ProfileActivity : AppCompatActivity() {
 
         ibEditProfile.setOnClickListener {
             val intent: Intent = Intent(this, EditProfileActivity::class.java)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)

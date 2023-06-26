@@ -20,9 +20,16 @@ class CalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         val ibBackCalculator = findViewById<ImageButton>(R.id.ibBackCalculator)
         ibBackCalculator.setOnClickListener{
             val intent: Intent = Intent(this, BuyerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

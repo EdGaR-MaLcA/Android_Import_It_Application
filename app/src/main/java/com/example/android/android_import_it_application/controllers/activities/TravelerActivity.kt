@@ -11,30 +11,41 @@ class TravelerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_traveler)
 
+        val dni = intent.getStringExtra("DNI")
         val user = intent.getSerializableExtra("User")
         val role = intent.getStringExtra("role")
 
         val ivCustomerOrder = findViewById<ImageView>(R.id.ivCustomerOrder)
         ivCustomerOrder.setOnClickListener {
             val intent: Intent = Intent(this, CustomerOrderActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
         val ivWallet = findViewById<ImageView>(R.id.ivWallet)
         ivWallet.setOnClickListener {
             val intent: Intent = Intent(this, WalletActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
         val ivMyOrders = findViewById<ImageView>(R.id.ivMyOrders)
         ivMyOrders.setOnClickListener {
             val intent: Intent = Intent(this, MyOrdersActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 
         val ivProfile = findViewById<ImageView>(R.id.ivProfile)
         ivProfile.setOnClickListener {
             val intent: Intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)

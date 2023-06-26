@@ -22,6 +22,8 @@ class PlaceOrderForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_order_form)
         val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
 
         val etTitle = findViewById<EditText>(R.id.etTitle)
         val etUrl = findViewById<EditText>(R.id.etUrl)
@@ -35,6 +37,8 @@ class PlaceOrderForm : AppCompatActivity() {
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
             Log.d("DNI", "DNI pasado: $dni")
         }
@@ -43,6 +47,9 @@ class PlaceOrderForm : AppCompatActivity() {
 
         ibBackPlaceOrder.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

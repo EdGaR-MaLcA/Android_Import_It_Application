@@ -12,6 +12,10 @@ class CustomerOrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_customer_order)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         val transaction = supportFragmentManager.beginTransaction()
         val ibBackCusOrder = findViewById<ImageButton>(R.id.ibBackDashboard)
 
@@ -19,6 +23,9 @@ class CustomerOrderActivity : AppCompatActivity() {
 
         ibBackCusOrder.setOnClickListener {
             val intent: Intent = Intent(this, TravelerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
     }

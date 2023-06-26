@@ -20,6 +20,8 @@ class DomesticActivity : AppCompatActivity() {
 
 
         val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
         val domesticFragment = DomesticFragment()
         val bundle = Bundle()
         bundle.putString("DNI", dni)
@@ -30,6 +32,8 @@ class DomesticActivity : AppCompatActivity() {
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
             Log.d("DNI", "DNI pasado: $dni")
         }

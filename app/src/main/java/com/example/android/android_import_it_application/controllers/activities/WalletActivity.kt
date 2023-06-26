@@ -15,6 +15,10 @@ class WalletActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wallet)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         val transaction = supportFragmentManager.beginTransaction()
         val ibBackWallet = findViewById<ImageButton>(R.id.ibBackWallet)
 
@@ -22,6 +26,9 @@ class WalletActivity: AppCompatActivity() {
 
         ibBackWallet.setOnClickListener {
             val intent: Intent = Intent(this, TravelerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
     }

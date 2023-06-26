@@ -28,10 +28,12 @@ class EditProfileActivity : AppCompatActivity() {
         val etAddress = findViewById<EditText>(R.id.etAddressEdit)
         val btSaveEdit = findViewById<Button>(R.id.btSaveEdit)
         val ibArrow = findViewById<ImageButton>(R.id.ibArrowProfileEdit)
+        val dni = intent.getStringExtra("DNI")
         val role = intent.getStringExtra("role")
 
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)

@@ -13,15 +13,25 @@ class Payment3Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.payment3)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         val ibArrow4 = findViewById<ImageButton>(R.id.ibArrow4)
         val bBack = findViewById<Button>(R.id.bBack)
 
         ibArrow4.setOnClickListener {
             val intent: Intent = Intent(this, SeeProductActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
         bBack.setOnClickListener {
             val intent: Intent = Intent(this, SeeProductActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

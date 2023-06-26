@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.android.android_import_it_application.R
 import kotlinx.coroutines.launch
 
-import androidx.lifecycle.lifecycleScope
 import com.example.android.android_import_it_application.database.AppDatabase
 
 class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
@@ -33,6 +32,9 @@ class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buyer_direction_agregate)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
 
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
 
@@ -58,6 +60,9 @@ class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
 
         ibBackDirectionForm.setOnClickListener {
             val intent: Intent = Intent(this, BuyerDirectionActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
     }

@@ -13,6 +13,10 @@ class MyOrdersActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_orders)
 
+        val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
+
         val transaction = supportFragmentManager.beginTransaction()
         val ibBackMyOrders = findViewById<ImageButton>(R.id.ibBackMyOrders)
 
@@ -20,6 +24,9 @@ class MyOrdersActivity : AppCompatActivity() {
 
         ibBackMyOrders.setOnClickListener {
             val intent: Intent = Intent(this, TravelerActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
     }

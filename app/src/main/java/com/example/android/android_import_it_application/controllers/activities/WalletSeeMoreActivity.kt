@@ -15,6 +15,7 @@ import com.example.android.android_import_it_application.controllers.fragments.W
 import com.example.android.android_import_it_application.database.OrderDatabase
 import com.example.android.android_import_it_application.models.Order
 import androidx.fragment.app.FragmentManager
+import com.example.android.android_import_it_application.models.User
 
 class WalletSeeMoreActivity : AppCompatActivity() {
 
@@ -26,11 +27,18 @@ class WalletSeeMoreActivity : AppCompatActivity() {
     lateinit var tvStatusWSM: TextView
     lateinit var btnDeleteWallet: Button
     lateinit var ibBackWalletSeeMore: ImageButton
+    lateinit var dni: String
+    lateinit var user: User
+    lateinit var role: String
     private lateinit var fragmentManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.prototype_wallet_see_more_traveler)
+
+        dni = intent.getStringExtra("DNI") as String
+        user = intent.getSerializableExtra("User") as User
+        role = intent.getStringExtra("role") as String
 
         fragmentManager = supportFragmentManager
 
@@ -42,6 +50,8 @@ class WalletSeeMoreActivity : AppCompatActivity() {
         tvStatusWSM = findViewById(R.id.tvStatusWSM)
         btnDeleteWallet = findViewById(R.id.btnDeleteWallet)
         ibBackWalletSeeMore = findViewById(R.id.ibBackWalletSeeMore)
+
+
 
         initFields(this)
     }
@@ -62,6 +72,9 @@ class WalletSeeMoreActivity : AppCompatActivity() {
 
         ibBackWalletSeeMore.setOnClickListener {
             val intent: Intent = Intent(this, WalletActivity::class.java)
+            intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
 

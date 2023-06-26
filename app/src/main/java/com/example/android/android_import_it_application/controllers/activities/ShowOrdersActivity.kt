@@ -15,6 +15,8 @@ class ShowOrdersActivity : AppCompatActivity() {
         setContentView(R.layout.activity_show_orders)
 
         val dni = intent.getStringExtra("DNI")
+        val user = intent.getSerializableExtra("User")
+        val role = intent.getStringExtra("role")
         val transaction = supportFragmentManager.beginTransaction()
         val ordersFragment = OrdersFragment()
 
@@ -29,6 +31,8 @@ class ShowOrdersActivity : AppCompatActivity() {
         ibBackDashboard.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
             intent.putExtra("DNI", dni)
+            intent.putExtra("User", user)
+            intent.putExtra("role", role)
             startActivity(intent)
             Log.d("DNI", "DNI pasado: $dni")
         }
