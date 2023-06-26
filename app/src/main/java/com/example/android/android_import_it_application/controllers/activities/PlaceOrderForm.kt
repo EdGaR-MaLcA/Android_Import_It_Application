@@ -31,7 +31,7 @@ class PlaceOrderForm : AppCompatActivity() {
         val etWeight = findViewById<EditText>(R.id.etWeight)
         val ibBackPlaceOrder = findViewById<ImageButton>(R.id.ibBackPlaceOrder)
 
-        val ibArrow = findViewById<ImageButton>(R.id.ibArrow)
+        val ibArrow = findViewById<ImageButton>(R.id.ibBackPlaceOrder)
         ibArrow.setOnClickListener {
             val intent: Intent = Intent(this, BuyerActivity::class.java)
             intent.putExtra("DNI", dni)
