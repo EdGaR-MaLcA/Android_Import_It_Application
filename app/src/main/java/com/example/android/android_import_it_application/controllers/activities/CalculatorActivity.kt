@@ -32,7 +32,7 @@ class CalculatorActivity : AppCompatActivity() {
         tvApproxCost = findViewById(R.id.tvApproxCost)
         btnCalculate = findViewById(R.id.btnCalculate)
 
-        val categories = arrayOf("Technology", "Skin Care", "Fashion", "Other Category")
+        val categories = arrayOf("Tecnología", "Cuidado de piel", "Moda", "Otra Categoría")
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -62,10 +62,10 @@ class CalculatorActivity : AppCompatActivity() {
 
         if (subtotal != null && subtotal > 0) {
             val multiplier = when (category) {
-                "Technology" -> 0.30
-                "Skin Care" -> 0.15
-                "Fashion" -> 0.20
-                "Other Category" -> 0.10
+                "Tecnología" -> 0.30
+                "Cuidado de piel" -> 0.15
+                "Moda" -> 0.20
+                "Otra Categoría" -> 0.10
                 else -> 0.0
             }
 

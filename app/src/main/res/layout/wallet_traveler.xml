@@ -183,8 +183,8 @@
 
     <TextView
         android:id="@+id/textView39"
-        android:layout_width="64dp"
-        android:layout_height="27dp"
+        android:layout_width="93dp"
+        android:layout_height="29dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
         android:text="@string/wallet1"

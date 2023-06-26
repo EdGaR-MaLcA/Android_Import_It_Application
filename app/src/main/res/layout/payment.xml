@@ -19,11 +19,12 @@
 
     <Button
         android:id="@+id/bAddTarget"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="199dp"
+        android:layout_height="60dp"
         android:layout_marginStart="119dp"
         android:layout_marginTop="63dp"
         android:layout_marginEnd="119dp"
+        android:backgroundTint="#3F51B5"
         android:text="@string/add_new_target"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +64,7 @@
         android:layout_marginStart="171dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="182dp"
-        android:text="Mastercar ends with 00000"
+        android:text="@string/mastercard_termina_en_00000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibMasterCard" />
@@ -75,7 +76,7 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="177dp"
-        android:text="Visa ends in 2145"
+        android:text="@string/visa_termina_en_2145"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibVisa" />

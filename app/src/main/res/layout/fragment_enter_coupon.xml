@@ -17,59 +17,41 @@
             android:layout_marginStart="121dp"
             android:layout_marginTop="81dp"
             android:layout_marginEnd="144dp"
-            android:layout_marginBottom="47dp"
-            android:text="Enter Coupon"
+            android:text="@string/ingrese_cup_n"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView59"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView59"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="47dp"
-            android:layout_marginBottom="32dp"
-            android:text="Import It offers coupons to its customers through email or through your main social networks. "
-            android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/textView60"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
         <TextView
             android:id="@+id/textView60"
             android:layout_width="399dp"
             android:layout_height="37dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="23dp"
-            android:text="If you have a coupon code, enter the characters in the box below to validate its validity."
+            android:layout_marginTop="92dp"
+            android:text="@string/si_tiene_un_c_digo_de_cup_n_ingrese_los_caracteres_en_el_cuadro_a_continuaci_n_para_validar_su_validez1"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/etCouponEntered"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView59" />
+            app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
         <EditText
             android:id="@+id/etCouponEntered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="101dp"
-            android:layout_marginBottom="28dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/btnCheckCoupon"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView60"
-            tools:text="Coupon code" />
+            tools:text="Código de Cupón" />
 
         <TextView
             android:id="@+id/textView61"
@@ -79,7 +61,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="5dp"
-            android:text="If you do not have a code, visit our social networks"
+            android:text="Si no tienes código, visita nuestras redes sociales"
             android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/imageView10"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +81,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView10"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView61" />
+            app:layout_constraintTop_toBottomOf="@+id/textView61"
+            app:layout_constraintVertical_bias="0.41" />
 
         <ImageView
             android:id="@+id/imageView10"
@@ -108,7 +91,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="32dp"
             android:src="@drawable/instagram"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView11"
@@ -127,19 +110,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView61" />
+            app:layout_constraintTop_toBottomOf="@+id/textView61"
+            app:layout_constraintVertical_bias="0.395" />
 
         <Button
             android:id="@+id/btnCheckCoupon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="205dp"
+            android:layout_height="65dp"
             android:layout_marginStart="158dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="47dp"
             android:layout_marginEnd="159dp"
-            android:layout_marginBottom="38dp"
-            android:text="Check Coupon"
-            app:layout_constraintBottom_toTopOf="@+id/textView61"
+            android:backgroundTint="#3F51B5"
+            android:text="Comprobar Cupón"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.522"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etCouponEntered" />
 

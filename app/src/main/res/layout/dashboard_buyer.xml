@@ -34,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="77dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="69dp"
         android:text="@string/chats"
         app:layout_constraintEnd_toStartOf="@+id/tvDirections"
@@ -92,8 +93,8 @@
 
     <ImageButton
         android:id="@+id/ibChats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="72dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="53dp"
@@ -106,8 +107,8 @@
 
     <ImageButton
         android:id="@+id/ibDirections"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="72dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="56dp"
         android:background="@color/white"
@@ -130,10 +131,10 @@
 
     <ImageButton
         android:id="@+id/ibCoupons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="64dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="52dp"
         android:background="@color/white"
         android:contentDescription="@string/coupons"
@@ -144,8 +145,8 @@
 
     <ImageButton
         android:id="@+id/ibCalculator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="74dp"
+        android:layout_height="73dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="51dp"
         android:background="@color/white"
@@ -160,8 +161,8 @@
         android:layout_height="64dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/white"
         android:contentDescription="@string/configuration"
         android:scaleType="fitCenter"

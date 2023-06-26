@@ -29,6 +29,7 @@ class PlaceOrderForm : AppCompatActivity() {
         val etAmount = findViewById<EditText>(R.id.etAmount)
         val etPrice = findViewById<EditText>(R.id.etPrice)
         val etWeight = findViewById<EditText>(R.id.etWeight)
+        val ibBackPlaceOrder = findViewById<ImageButton>(R.id.ibBackPlaceOrder)
 
         val ibArrow = findViewById<ImageButton>(R.id.ibArrow)
         ibArrow.setOnClickListener {
@@ -39,6 +40,11 @@ class PlaceOrderForm : AppCompatActivity() {
         }
 
         val btnPlaceOrder = findViewById<Button>(R.id.btnPlaceOrder)
+
+        ibBackPlaceOrder.setOnClickListener {
+            val intent: Intent = Intent(this, BuyerActivity::class.java)
+            startActivity(intent)
+        }
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")

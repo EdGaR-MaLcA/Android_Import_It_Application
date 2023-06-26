@@ -28,6 +28,7 @@
         android:layout_marginTop="11dp"
         android:layout_marginEnd="170dp"
         android:text="@string/description"
+        android:textColor="#1B1B1B"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,13 +52,15 @@
     <Button
         android:id="@+id/bProceedPay"
         android:layout_width="361dp"
-        android:layout_height="wrap_content"
+        android:layout_height="58dp"
         android:layout_marginStart="154dp"
         android:layout_marginEnd="163dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#3F51B5"
         android:text="@string/proceed_to_pay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -77,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
+        android:textColor="#1C1C1C"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvProductName"
         app:layout_constraintStart_toEndOf="@+id/tvProductName"
         tools:text="Nombre del producto" />
@@ -85,7 +89,7 @@
         android:id="@+id/tvProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="28dp"
         android:text="@string/name_product"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +99,7 @@
         android:id="@+id/tvTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="17dp"
         android:text="@string/total_price"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,6 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
+        android:textColor="#292929"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvTotalPrice"
         app:layout_constraintStart_toEndOf="@+id/tvTotalPrice"
         tools:text="Precio" />
