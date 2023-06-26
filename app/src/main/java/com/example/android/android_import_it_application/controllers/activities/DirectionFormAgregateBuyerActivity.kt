@@ -1,10 +1,12 @@
 package com.example.android.android_import_it_application.controllers.activities
 
+import android.content.Intent
 import android.content.SharedPreferences
 import com.example.android.android_import_it_application.database.FormData
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.android_import_it_application.R
@@ -25,6 +27,7 @@ class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
     private lateinit var buttonSave: Button
     private lateinit var buttonDiscard: Button
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var ibBackDirectionForm : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +46,7 @@ class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
         editTextProvince = findViewById(R.id.editTextProvince)
         buttonSave = findViewById(R.id.buttonSave)
         buttonDiscard = findViewById(R.id.buttonDiscard)
+        ibBackDirectionForm = findViewById(R.id.ibBackDirectionForm)
 
         buttonSave.setOnClickListener {
             saveFormData()
@@ -50,6 +54,11 @@ class DirectionFormAgregateBuyerActivity : AppCompatActivity() {
 
         buttonDiscard.setOnClickListener {
             discardFormData()
+        }
+
+        ibBackDirectionForm.setOnClickListener {
+            val intent: Intent = Intent(this, BuyerDirectionActivity::class.java)
+            startActivity(intent)
         }
     }
 

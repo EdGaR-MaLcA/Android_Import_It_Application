@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,105 +8,126 @@
     android:padding="16dp"
     tools:context=".controllers.activities.DirectionFormAgregateBuyerActivity">
 
-    <TextView
-        android:text="Departament"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="377dp"
+        android:layout_height="629dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editTextDepartament"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter departament" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Departament" />
 
-    <TextView
-        android:text="Direction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextDepartament"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter departament" />
 
-    <EditText
-        android:id="@+id/editTextDirection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter direction" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Direction" />
 
-    <TextView
-        android:text="District"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextDirection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter direction" />
 
-    <EditText
-        android:id="@+id/editTextDistrict"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter district" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="District" />
 
-    <TextView
-        android:text="DNI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextDistrict"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter district" />
 
-    <EditText
-        android:id="@+id/editTextDNI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter DNI" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DNI" />
 
-    <TextView
-        android:text="Lastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextDNI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter DNI" />
 
-    <EditText
-        android:id="@+id/editTextLastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter lastname" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lastname" />
 
-    <TextView
-        android:text="Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextLastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter lastname" />
 
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter name" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name" />
 
-    <TextView
-        android:text="Phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter name" />
 
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter phone" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone" />
 
-    <TextView
-        android:text="Province"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter phone" />
 
-    <EditText
-        android:id="@+id/editTextProvince"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter province" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Province" />
 
-    <Button
-        android:id="@+id/buttonSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar" />
+        <EditText
+            android:id="@+id/editTextProvince"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter province" />
 
-    <Button
-        android:id="@+id/buttonDiscard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descartar" />
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/buttonDiscard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descartar" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ibBackDirectionForm"
+        android:layout_width="37dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/flecha" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
