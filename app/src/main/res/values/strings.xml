@@ -180,4 +180,7 @@
     <string name="mastercard_termina_en_00000">Mastercard termina en 00000</string>
     <string name="cantidad3">Cantidad:</string>
     <string name="date1">Date</string>
+    <string name="agregate_direction">Agregate Direction</string>
+    <string name="load_direction">Load Direction</string>
+    <string name="textview">text</string>
 </resources>

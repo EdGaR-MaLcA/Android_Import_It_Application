@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edittext_rounded_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#E8E8E8" /> <!-- Color de fondo del campo de entrada de texto -->
+    <corners android:radius="24dp" /> <!-- Radio de las esquinas para hacerlo redondeado -->
+</shape>
