@@ -22,6 +22,10 @@ class CouponActivity : AppCompatActivity() {
         val dni = intent.getStringExtra("DNI")
         val user = intent.getSerializableExtra("User")
         val role = intent.getStringExtra("role")
+        val bundle = Bundle()
+        bundle.putString("DNI", dni)
+        bundle.putString("role", role)
+        bundle.putSerializable("User", user)
 
         val ibBackCoupon = findViewById<ImageButton>(R.id.ibBackCoupon)
 
@@ -41,6 +45,7 @@ class CouponActivity : AppCompatActivity() {
             } else {
                 EnterCouponFragment()
             }
+            fragment.arguments = bundle
 
             transaction.add(R.id.flFragmentCoupon, fragment).commitAllowingStateLoss()
         }
