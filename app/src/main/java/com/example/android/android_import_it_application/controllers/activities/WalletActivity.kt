@@ -18,11 +18,17 @@ class WalletActivity: AppCompatActivity() {
         val dni = intent.getStringExtra("DNI")
         val user = intent.getSerializableExtra("User")
         val role = intent.getStringExtra("role")
+        val walletFragment = WalletFragment()
+        val bundle = Bundle()
+        bundle.putString("DNI", dni)
+        bundle.putString("role", role)
+        bundle.putSerializable("User", user)
+        walletFragment.arguments = bundle
 
         val transaction = supportFragmentManager.beginTransaction()
         val ibBackWallet = findViewById<ImageButton>(R.id.ibBackWallet)
 
-        transaction.add(R.id.flWallet, WalletFragment()).commitAllowingStateLoss()
+        transaction.add(R.id.flWallet, walletFragment).commitAllowingStateLoss()
 
         ibBackWallet.setOnClickListener {
             val intent: Intent = Intent(this, TravelerActivity::class.java)

@@ -41,6 +41,7 @@ class DomesticDetails : AppCompatActivity() {
             intent.putExtra("role", role)
             startActivity(intent)
             Log.d("DNI", "DNI pasado: $dni")
+            Log.d("User", "DNI pasado: $user")
         }
 
         ivDomesticDetail = findViewById(R.id.ivDetailDomestic)

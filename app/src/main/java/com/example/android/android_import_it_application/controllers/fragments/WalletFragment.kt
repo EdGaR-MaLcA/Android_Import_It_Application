@@ -17,6 +17,7 @@ import com.example.android.android_import_it_application.adapter.WalletAdapter
 import com.example.android.android_import_it_application.controllers.activities.WalletSeeMoreActivity
 import com.example.android.android_import_it_application.database.OrderDatabase
 import com.example.android.android_import_it_application.models.Order
+import com.example.android.android_import_it_application.models.User
 
 class WalletFragment : Fragment(), WalletAdapter.OnItemClickListener{
     var savedOrders: List<Order> = ArrayList()
@@ -26,6 +27,9 @@ class WalletFragment : Fragment(), WalletAdapter.OnItemClickListener{
     lateinit var btnDoneW: Button
     lateinit var btnAll: Button
     lateinit var currentStatus: String
+    private var role: String = ""
+    private var user: User? = null
+    private var dni: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +41,13 @@ class WalletFragment : Fragment(), WalletAdapter.OnItemClickListener{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val bundle = arguments
+
+        dni = bundle?.getString("DNI", "") ?: ""
+        role = bundle?.getString("role", "") ?: ""
+        user = bundle?.getSerializable("User") as? User
+
         recyclerView=view.findViewById(R.id.rvWalletOrders)
         btnInProcessW2 = view.findViewById(R.id.btnInProcessW2)
         btnDoneW = view.findViewById(R.id.btnDoneW)
@@ -83,6 +94,9 @@ class WalletFragment : Fragment(), WalletAdapter.OnItemClickListener{
         Log.d("Principal", "Id: "+order.order_id)
         val intento = Intent(context, WalletSeeMoreActivity::class.java)
         intento.putExtra("Order", order)
+        intento.putExtra("DNI", dni)
+        intento.putExtra("role", role)
+        intento.putExtra("User", user)
         startActivity(intento)
     }
 }

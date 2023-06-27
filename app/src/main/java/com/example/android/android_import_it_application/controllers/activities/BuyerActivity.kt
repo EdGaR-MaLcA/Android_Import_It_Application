@@ -40,7 +40,6 @@ class BuyerActivity : AppCompatActivity() {
         ibDomestic.setOnClickListener {
             val intent: Intent = Intent(this, DomesticActivity::class.java)
             intent.putExtra("DNI", dni)
-            intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
             startActivity(intent)

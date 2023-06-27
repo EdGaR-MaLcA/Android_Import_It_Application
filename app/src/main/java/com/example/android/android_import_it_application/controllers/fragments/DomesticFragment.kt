@@ -28,6 +28,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
     private lateinit var domesticShips: List<DomesticShipment>
     lateinit var recyclerView: RecyclerView
+    private var role: String = ""
+    private var user: User? = null
     private var dni: String = ""
     private lateinit var user_id: String
 
@@ -42,10 +44,15 @@ class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.rvDomestic)
+
         val bundle = arguments
         if (dni.isEmpty()) {
             dni = bundle?.getString("DNI", "") ?: ""
         }
+        role = bundle?.getString("role", "") ?: ""
+        user = bundle?.getSerializable("User") as? User
+
+
         getUserIDByDNI(dni) { userID ->
             if (userID != null) {
                 Log.d("User ID", "ID del usuario con DNI $dni: $userID")
@@ -137,7 +144,10 @@ class DomesticFragment : Fragment(), DomesticAdapter.OnItemClickListener {
         val intent = Intent(context, DomesticDetails::class.java)
         intent.putExtra("DomesticShipment", domesticShipment)
         intent.putExtra("DNI", dni)
+        intent.putExtra("role", role)
+        intent.putExtra("User", user)
         startActivity(intent)
         Log.d("DNI", "DNI pasado: $dni")
+        Log.d("User", "User pasado: $user")
     }
 }

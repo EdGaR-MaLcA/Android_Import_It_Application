@@ -25,6 +25,8 @@ class DomesticActivity : AppCompatActivity() {
         val domesticFragment = DomesticFragment()
         val bundle = Bundle()
         bundle.putString("DNI", dni)
+        bundle.putString("role", role)
+        bundle.putSerializable("User", user)
         domesticFragment.arguments = bundle
 
         transaction.add(R.id.flFragmentDomestic, domesticFragment).commitAllowingStateLoss()

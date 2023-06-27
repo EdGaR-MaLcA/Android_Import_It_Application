@@ -15,6 +15,7 @@ import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.activities.SavedCouponsActivity
 import com.example.android.android_import_it_application.database.CouponDatabase
 import com.example.android.android_import_it_application.models.Coupon
+import com.example.android.android_import_it_application.models.User
 import com.example.android.android_import_it_application.network.ImportItService
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -25,6 +26,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class EnterCouponFragment : Fragment() {
+    private var role: String = ""
+    private var user: User? = null
+    private var dni: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -37,6 +41,12 @@ class EnterCouponFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_enter_coupon, container, false)
+
+        val bundle = arguments
+
+        dni = bundle?.getString("DNI", "") ?: ""
+        role = bundle?.getString("role", "") ?: ""
+        user = bundle?.getSerializable("User") as? User
 
         val etCouponEntered = view.findViewById<EditText>(R.id.etCouponEntered)
         val btnCheckCoupon = view.findViewById<Button>(R.id.btnCheckCoupon)
@@ -106,6 +116,9 @@ class EnterCouponFragment : Fragment() {
 
     private fun showCoupons(){
         val intent = Intent(context, SavedCouponsActivity::class.java)
+        intent.putExtra("DNI", dni)
+        intent.putExtra("role", role)
+        intent.putExtra("User", user)
         startActivity(intent)
     }
 

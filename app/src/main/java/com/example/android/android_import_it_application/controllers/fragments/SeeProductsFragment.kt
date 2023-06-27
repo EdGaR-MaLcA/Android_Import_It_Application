@@ -15,6 +15,7 @@ import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.adapter.SeeProductAdapter
 import com.example.android.android_import_it_application.controllers.activities.DescriptionItemActivity
 import com.example.android.android_import_it_application.models.ProductList
+import com.example.android.android_import_it_application.models.User
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,21 +26,29 @@ import retrofit2.converter.gson.GsonConverterFactory
 class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
     lateinit var recyclerView: RecyclerView
     private lateinit var seeProducts: List<ProductList>
+    private var role: String = ""
+    private var user: User? = null
+    private var dni: String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_see_product, container, false)
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView= view.findViewById(R.id.rvSeeProduct)
         val svSeeProduct = view.findViewById<SearchView>(R.id.svSeeProduct)
+
+        val bundle = arguments
+
+        dni = bundle?.getString("DNI", "") ?: ""
+        role = bundle?.getString("role", "") ?: ""
+        user = bundle?.getSerializable("User") as? User
+
         svSeeProduct.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 return false
@@ -94,6 +103,9 @@ class SeeProductsFragment : Fragment(), SeeProductAdapter.OnItemClickListener {
     override fun onItemClicked(seeProduct: ProductList){
         val intent = Intent(context, DescriptionItemActivity::class.java)
         intent.putExtra("ProductList", seeProduct)
+        intent.putExtra("DNI", dni)
+        intent.putExtra("role", role)
+        intent.putExtra("User", user)
         startActivity(intent)
     }
 
