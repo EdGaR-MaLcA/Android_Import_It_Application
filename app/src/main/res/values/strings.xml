@@ -205,5 +205,7 @@
     <string name="ingresar_dni">Ingresar DNI:</string>
     <string name="buscar">Buscar</string>
     <string name="google_maps_api_key">AIzaSyAIL7NdSWsyDZYGg3dj_9ns-RaR8ZzwVdo</string>
+    <string name="aceptar_t_rminos">Aceptar Términos</string>
+    <string name="aceptar_t_rminos_y_condiciones">Aceptar Términos y Condiciones</string>
 
 </resources>

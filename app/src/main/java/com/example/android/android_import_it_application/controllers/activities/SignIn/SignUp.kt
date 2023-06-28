@@ -3,7 +3,9 @@ package com.example.android.android_import_it_application.controllers.activities
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.android_import_it_application.R
@@ -30,6 +32,10 @@ class SignUp : AppCompatActivity() {
         val etPhone = findViewById<EditText>(R.id.etPhone)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnSignUp = findViewById<Button>(R.id.btnSignUp)
+        val checkBoxTerms = findViewById<CheckBox>(R.id.checkBoxTerms)
+        val role = intent.getStringExtra("role")
+        val tvAceptarTérminos = findViewById<TextView>(R.id.tvAceptarTérminos)
+
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://importitbackend-production-fd05.up.railway.app/api/")
@@ -37,6 +43,10 @@ class SignUp : AppCompatActivity() {
             .build()
 
         val userService: ImportItService = retrofit.create(ImportItService::class.java)
+
+        tvAceptarTérminos.setOnClickListener {
+
+        }
 
         btnSignUp.setOnClickListener {
             val name = etName.text.toString()
@@ -53,6 +63,11 @@ class SignUp : AppCompatActivity() {
             val day = birthdayParts[0]
             val month = birthdayParts[1]
             val year = birthdayParts[2]
+
+            if (!checkBoxTerms.isChecked) {
+                Toast.makeText(applicationContext, "Debes aceptar los términos y condiciones", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             val request = userService.getUsers()
             request.enqueue(object : Callback<List<User>> {
@@ -75,6 +90,7 @@ class SignUp : AppCompatActivity() {
                                     Toast.makeText(applicationContext, "Registro exitoso", Toast.LENGTH_SHORT).show()
                                     // Realizar acciones adicionales después del registro exitoso
                                     val intent = Intent(this@SignUp, LogIn::class.java)
+                                    intent.putExtra("role", role)
                                     startActivity(intent)
                                     finish()
                                 } else {
