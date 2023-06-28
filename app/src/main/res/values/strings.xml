@@ -204,4 +204,6 @@
     <string name="descartar">Descartar</string>
     <string name="ingresar_dni">Ingresar DNI:</string>
     <string name="buscar">Buscar</string>
+    <string name="google_maps_api_key">AIzaSyAIL7NdSWsyDZYGg3dj_9ns-RaR8ZzwVdo</string>
+
 </resources>

@@ -1,6 +1,7 @@
 package com.example.android.android_import_it_application.network
 
 import com.example.android.android_import_it_application.models.*
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -48,4 +49,12 @@ interface ImportItService {
 
     @POST("orders")
     fun placeOrder(@Body order: Order): Call<Void>
+
+    @GET("staticmap")
+    fun getStaticMap(
+        @Query("center") center: String,
+        @Query("zoom") zoom: Int,
+        @Query("size") size: String,
+        @Query("key") apiKey: String
+    ): Call<ResponseBody>
 }

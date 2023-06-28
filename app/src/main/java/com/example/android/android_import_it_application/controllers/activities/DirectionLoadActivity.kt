@@ -3,14 +3,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.android.android_import_it_application.R
 import androidx.room.Room
 import com.example.android.android_import_it_application.database.MyDatabase
+
 
 class DirectionLoadActivity : AppCompatActivity(){
     private lateinit var textViewDatos: TextView
@@ -19,6 +20,7 @@ class DirectionLoadActivity : AppCompatActivity(){
     private var dnifilt: String? = null
     private lateinit var editTextApellido: EditText
     private lateinit var ibBackDirections: ImageButton
+    private lateinit var imageViewMap: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buyerdirectionshow)
@@ -33,6 +35,7 @@ class DirectionLoadActivity : AppCompatActivity(){
 
         editTextApellido = findViewById(R.id.filterdni)
         buttonBuscar = findViewById(R.id.btnsearch)
+        imageViewMap = findViewById(R.id.imageViewMap)
 
         buttonBuscar.setOnClickListener {
             dnifilt = editTextApellido.text.toString()
@@ -75,6 +78,18 @@ class DirectionLoadActivity : AppCompatActivity(){
         } else {
             textViewDatos.visibility = View.GONE
         }
+        val apiKey = getString(R.string.google_maps_api_key)
+        val mapUrl = "https://maps.googleapis.com/maps/api/staticmap?" +
+                "center=$direcccion" +
+                "&zoom=15" +
+                "&size=600x400" +
+                "&markers=color:red%7C$direcccion" +
+                "&key=$apiKey"
+
+        // Carga la imagen del mapa en el ImageView usando Glide
+        Glide.with(this)
+            .load(mapUrl)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .into(imageViewMap)
     }
 }
-
