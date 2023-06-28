@@ -1,6 +1,7 @@
 package com.example.android.android_import_it_application.controllers.activities.SignIn
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
@@ -8,7 +9,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import com.example.android.android_import_it_application.R
+import com.example.android.android_import_it_application.controllers.activities.WebViewActivity
 import com.example.android.android_import_it_application.models.User
 import com.example.android.android_import_it_application.network.ImportItService
 import retrofit2.Call
@@ -16,6 +19,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
 
 class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +52,10 @@ class SignUp : AppCompatActivity() {
         val userService: ImportItService = retrofit.create(ImportItService::class.java)
 
         tvAceptarTérminos.setOnClickListener {
-
+            val webViewIntent = Intent(this, WebViewActivity::class.java)
+            webViewIntent.putExtra("file_name", "terms_and_conditions.html")
+            intent.putExtra("role", role)
+            startActivity(webViewIntent)
         }
 
         btnSignUp.setOnClickListener {
