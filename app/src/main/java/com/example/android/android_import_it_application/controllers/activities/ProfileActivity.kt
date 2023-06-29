@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.android.android_import_it_application.R
+import com.example.android.android_import_it_application.controllers.activities.SignIn.SelectRole
 import com.example.android.android_import_it_application.models.ProductList
 import com.example.android.android_import_it_application.models.User
 import com.squareup.picasso.OkHttp3Downloader
@@ -24,6 +25,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var tvYearProfile: TextView
     lateinit var tvCellProfile: TextView
     lateinit var tvDirectionProfile: TextView
+    lateinit var btnCerrarSesion:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +43,7 @@ class ProfileActivity : AppCompatActivity() {
         tvYearProfile = findViewById(R.id.tvYearProfile)
         tvCellProfile = findViewById(R.id.tvCellProfileEdit)
         tvDirectionProfile = findViewById(R.id.tvDirectionProfileEdit)
+        btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
 
         val ibArrow = findViewById<ImageButton>(R.id.ibArrowProfile)
         val ibEditProfile = findViewById<Button>(R.id.btEditProfile)
@@ -66,6 +69,11 @@ class ProfileActivity : AppCompatActivity() {
             intent.putExtra("DNI", dni)
             intent.putExtra("User", user)
             intent.putExtra("role", role)
+            startActivity(intent)
+        }
+
+        btnCerrarSesion.setOnClickListener {
+            val intent: Intent = Intent(this, SelectRole::class.java)
             startActivity(intent)
         }
 
