@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.android.android_import_it_application.R
 import com.example.android.android_import_it_application.controllers.activities.BuyerActivity
+import com.example.android.android_import_it_application.controllers.activities.CheckDni
 import com.example.android.android_import_it_application.controllers.activities.TravelerActivity
 import com.example.android.android_import_it_application.models.User
 import com.example.android.android_import_it_application.network.ImportItService
@@ -39,6 +40,7 @@ class LogIn : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvSignUp = findViewById<TextView>(R.id.tvSignUp)
+        val tvCambioContraseña = findViewById<TextView>(R.id.tvCambioContraseña)
 
         tvSignUp.setOnClickListener {
             val intent = Intent(this@LogIn, SignUp::class.java)
@@ -52,6 +54,12 @@ class LogIn : AppCompatActivity() {
             .build()
 
         val userService: ImportItService = retrofit.create(ImportItService::class.java)
+
+        tvCambioContraseña.setOnClickListener {
+            val intent: Intent = Intent(this, CheckDni::class.java)
+            intent.putExtra("role", role)
+            startActivity(intent)
+        }
 
         btnLogin.setOnClickListener {
             val dni = etDni.text.toString()

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Android_Import_It_Application"
         tools:targetApi="31">
         <activity
+            android:name=".controllers.activities.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.activities.CheckDni"
+            android:exported="false" />
+        <activity
             android:name=".controllers.activities.WebViewActivity"
             android:exported="false" />
         <activity
