@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.example.android.android_import_it_application.R
+import com.example.android.android_import_it_application.controllers.activities.BuyerActivity
 import com.example.android.android_import_it_application.controllers.activities.WebViewActivity
 import com.example.android.android_import_it_application.models.User
 import com.example.android.android_import_it_application.network.ImportItService
@@ -42,6 +44,7 @@ class SignUp : AppCompatActivity() {
         val checkBoxTerms = findViewById<CheckBox>(R.id.checkBoxTerms)
         val role = intent.getStringExtra("role")
         val tvAceptarTérminos = findViewById<TextView>(R.id.tvAceptarTérminos)
+        val ibBackRegistro = findViewById<ImageButton>(R.id.ibBackRegistro)
 
 
         val retrofit = Retrofit.Builder()
@@ -56,6 +59,12 @@ class SignUp : AppCompatActivity() {
             webViewIntent.putExtra("file_name", "terms_and_conditions.html")
             intent.putExtra("role", role)
             startActivity(webViewIntent)
+        }
+
+        ibBackRegistro.setOnClickListener {
+            val intent: Intent = Intent(this, LogIn::class.java)
+            intent.putExtra("role", role)
+            startActivity(intent)
         }
 
         btnSignUp.setOnClickListener {

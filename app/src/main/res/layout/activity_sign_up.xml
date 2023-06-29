@@ -255,5 +255,13 @@
             app:layout_constraintStart_toEndOf="@+id/checkBoxTerms"
             app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
+        <ImageButton
+            android:id="@+id/ibBackRegistro"
+            android:layout_width="37dp"
+            android:layout_height="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/flecha" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
