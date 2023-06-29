@@ -55,10 +55,10 @@ class SignUp : AppCompatActivity() {
         val userService: ImportItService = retrofit.create(ImportItService::class.java)
 
         tvAceptarTérminos.setOnClickListener {
-            val webViewIntent = Intent(this, WebViewActivity::class.java)
-            webViewIntent.putExtra("file_name", "terms_and_conditions.html")
+            val intent: Intent = Intent(this, WebViewActivity::class.java)
             intent.putExtra("role", role)
-            startActivity(webViewIntent)
+            intent.putExtra("file_name", "terms_and_conditions.html")
+            startActivity(intent)
         }
 
         ibBackRegistro.setOnClickListener {
